@@ -94,6 +94,7 @@
             display: none; position: fixed; top: 80px; width: 420px; max-width: 95%;
             background: var(--blue); border-radius: 12px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             padding: 32px 0; z-index: 1000; max-height: 80vh; overflow-y: auto;
+            -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
         }
         .services-menu.active .services-dropdown { display: block; }
         @media (hover: hover) and (pointer: fine) { .services-menu:hover .services-dropdown { display: block; } }
@@ -128,6 +129,7 @@
         .additional-submenu, .service-areas-submenu {
             max-height: 0; overflow: hidden; transition: max-height 0.8s ease;
             background: rgba(0, 0, 0, 0.2); margin: 0 20px 14px; border-radius: 8px;
+            -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
         }
         .additional-submenu li, .service-areas-submenu li {
             padding: 20px 44px; color: #eee; font-size: 17px; margin: 12px 0; transition: all .3s;
@@ -399,7 +401,7 @@
     <header>
         <div class="container nav-wrapper">
             <a href="/" class="logo-link" aria-label="Return to Thermador Appliance Repair NYC Homepage">
-                <img src="assets/logo.svg" alt="Thermador Appliance Repair NYC" width="176" height="40">
+                <img src="assets/logo.svg" alt="Thermador Appliance Repair NYC" width="192" height="40">
             </a>
             <div class="nav-right">
                 <div class="services-menu" id="servicesMenu">
@@ -1135,8 +1137,28 @@
             
             if (servicesToggle) servicesToggle.addEventListener('click', function(e) { e.stopPropagation(); servicesMenu.classList.toggle('active'); });
             if (dropdownCloseBtn) dropdownCloseBtn.addEventListener('click', function(e) { e.stopPropagation(); closeDropdown(); });
-            if (additionalToggle) additionalToggle.addEventListener('click', function(e) { e.stopPropagation(); additionalSubmenu.style.maxHeight = additionalSubmenu.style.maxHeight !== '0px' && additionalSubmenu.style.maxHeight ? '0' : '400px'; });
-            if (serviceAreasToggle) serviceAreasToggle.addEventListener('click', function(e) { e.stopPropagation(); serviceAreasSubmenu.style.maxHeight = serviceAreasSubmenu.style.maxHeight !== '0px' && serviceAreasSubmenu.style.maxHeight ? '0' : '400px'; });
+            if (additionalToggle) additionalToggle.addEventListener('click', function(e) { 
+                e.stopPropagation(); 
+                var isOpen = additionalSubmenu.style.maxHeight !== '0px' && additionalSubmenu.style.maxHeight;
+                additionalSubmenu.style.maxHeight = isOpen ? '0' : '400px';
+                if (!isOpen) {
+                    var dropdown = document.getElementById('servicesDropdown');
+                    setTimeout(function() {
+                        dropdown.scrollTop = additionalToggle.offsetTop - 20;
+                    }, 100);
+                }
+            });
+            if (serviceAreasToggle) serviceAreasToggle.addEventListener('click', function(e) { 
+                e.stopPropagation(); 
+                var isOpen = serviceAreasSubmenu.style.maxHeight !== '0px' && serviceAreasSubmenu.style.maxHeight;
+                serviceAreasSubmenu.style.maxHeight = isOpen ? '0' : '400px';
+                if (!isOpen) {
+                    var dropdown = document.getElementById('servicesDropdown');
+                    setTimeout(function() {
+                        dropdown.scrollTop = serviceAreasToggle.offsetTop - 20;
+                    }, 100);
+                }
+            });
             document.addEventListener('click', function(e) { if (!servicesMenu.contains(e.target)) closeDropdown(); });
 
             // Call buttons - obfuscated
