@@ -305,18 +305,14 @@
         .service-types li:before { content: "✓"; color: var(--red); font-weight: bold; margin-right: 8px; }
         @media (max-width: 600px) { .service-types ul { grid-template-columns: 1fr; } }
         .content-scroll {
-            max-height: 300px; overflow-y: auto; padding-right: 10px; margin-top: 15px;
-            line-height: 1.7; color: #444; font-size: 14px; text-align: left;
-            -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+            max-height: none; overflow-y: visible; padding-right: 10px; margin-top: 15px;
+            line-height: 1.8; color: #444; font-size: 15px; text-align: left;
         }
-        @media (max-width: 768px) {
-            .content-scroll { max-height: none; overflow-y: visible; }
-        }
-        .content-scroll::-webkit-scrollbar { width: 6px; }
-        .content-scroll::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px; }
-        .content-scroll::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
-        .content-scroll h4 { color: var(--blue); font-size: 16px; margin: 20px 0 10px 0; }
-        .content-scroll p { margin: 0 0 12px 0; }
+        .content-scroll h4 { color: var(--blue); font-size: 17px; margin: 25px 0 12px 0; font-weight: 700; }
+        .content-scroll h5 { color: var(--red); font-size: 15px; margin: 20px 0 10px 0; font-weight: 600; }
+        .content-scroll p { margin: 0 0 14px 0; }
+        .content-scroll ul { margin: 0 0 15px 0; padding-left: 20px; }
+        .content-scroll ul li { margin-bottom: 8px; list-style: disc; }
         /* Service Areas Section */
         #sa-service-areas {
             background: transparent; border: 2px solid #808080; border-radius: 12px;
@@ -482,11 +478,14 @@
         footer { background: #1a1a2e; color: #ccc; padding: 0; }
         .footer-main { padding: 60px 0 40px; }
         .footer-grid {
-            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px;
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px;
             max-width: 1200px; margin: 0 auto; padding: 0 20px;
         }
         @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
-        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; gap: 35px; } }
+        @media (max-width: 600px) { 
+            .footer-grid { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+            .footer-column ul { display: flex; flex-direction: column; align-items: center; }
+        }
         .footer-column h2, .footer-column h3 { color: white; margin-bottom: 20px; }
         .footer-column h2 { font-size: 24px; }
         .footer-column h3 { font-size: 18px; }
@@ -507,7 +506,7 @@
     <header>
         <div class="container nav-wrapper">
             <a href="/" class="logo-link" aria-label="Return to Thermador Appliance Repair NYC Homepage">
-                <img src="assets/logo.svg" alt="Thermador Appliance Repair NYC" width="160" height="40">
+                <img src="assets/logo.svg?v=2" alt="Thermador Appliance Repair NYC" width="160" height="40">
             </a>
             <div class="nav-right">
                 <div class="services-menu" id="servicesMenu">
@@ -563,14 +562,42 @@
                             <li>Speed Ovens</li><li>Professional Series</li><li>Masterpiece Series</li><li>Combination Ovens</li>
                         </ul>
                         <div class="content-scroll">
-                            <p>Thermador ovens are celebrated for their innovative engineering, offering precise temperature control, superior heat consistency, and robust construction tailored for high-end kitchens. Whether you're preparing delicate soufflés or hosting a grand dinner, a Thermador oven is a cornerstone for culinary mastery. Yet, even these premium appliances can face issues that interrupt meal preparation, degrade cooking performance, or stop kitchen operations entirely. A faulty oven might result in unevenly cooked dishes, raw centers, or scheduling setbacks. Our expert repair services are crafted to resolve these problems quickly, ensuring your Thermador oven delivers impeccable results, keeping your kitchen workflow smooth and your meals flawlessly prepared.</p>
-                            <h4>Specialized Thermador Oven Models</h4>
-                            <p>Thermador provides an elite range of oven models, each designed to accommodate varied cooking styles and luxurious kitchen aesthetics. Our repair proficiency encompasses this entire portfolio, delivering customized solutions for every configuration:</p>
-                            <p><strong>Gas, Electric, Wall, Double, Dual Fuel, Induction, Convection and Freestanding Models</strong>: From traditional gas units to cutting-edge induction systems, we address issues like temperature fluctuations, ignition failures, and electronic malfunctions specific to each design, ensuring seamless operation for any Thermador oven.</p>
-                            <h4>Serving Residential and Commercial Clients</h4>
-                            <p>With over seventy-four certified technicians, we provide Thermador oven repair services across Manhattan, Brooklyn, Queens, and the Bronx, supporting both homeowners and commercial kitchens. For households, we ensure ovens meet daily cooking needs with minimal interruption. For restaurants and catering operations, we repair high-capacity Thermador models to maintain seamless service, understanding the vital role ovens play in professional environments.</p>
-                            <h4>Dependable Thermador Oven Repair Services</h4>
-                            <p>Our Thermador oven repair services are rooted in technical mastery, reliability, and customer satisfaction. Whether addressing a minor issue or a major malfunction, we provide solutions that restore your oven's elite performance. Serving Manhattan, Brooklyn, Queens, and the Bronx with genuine Thermador parts, our team ensures your oven delivers years of exceptional cooking tailored to your culinary vision.</p>
+                            <h4>Premium Features of Thermador Ovens</h4>
+                            <p>Thermador ovens represent the pinnacle of culinary technology, incorporating features that distinguish them from standard kitchen appliances. The signature Star Burner design provides superior flame spread and more even heat distribution, while the True Convection system utilizes a third heating element behind the fan to ensure consistent temperatures throughout the cooking cavity. Thermador's exclusive Home Connect technology enables remote monitoring and control through smartphone applications, allowing you to preheat your oven while still at the grocery store or receive notifications when your roast reaches the perfect internal temperature.</p>
+                            <p>The Self-Cleaning modes available on Thermador ovens utilize high-temperature pyrolytic cleaning or steam-based cleaning options, reducing manual scrubbing and maintaining pristine interior surfaces. Professional-grade door hinges provide smooth operation and secure closure, while multi-layered glass panels minimize external heat transfer for kitchen safety. The precision temperature probes included with many models connect directly to the oven's control system, automatically adjusting cooking parameters to achieve exact doneness specifications.</p>
+                            
+                            <h4>Advantages of Choosing Thermador</h4>
+                            <p>Thermador ovens deliver professional-grade performance within residential settings, offering capacities and capabilities previously reserved for commercial kitchens. The brand's commitment to innovation is evident in features like the Softclose door mechanism that prevents slamming, the telescopic rack system for safe access to heavy dishes, and the extra-large viewing windows with interior halogen lighting for monitoring without opening the door.</p>
+                            <ul>
+                                <li>Industry-leading 22,000 BTU burners for rapid heating and searing capabilities</li>
+                                <li>Flexible cooking modes including bake, broil, convection, roast, proof, dehydrate, and warm</li>
+                                <li>Sabbath Mode programming for religious observance requirements</li>
+                                <li>Dual-stacked burners allowing both high-power cooking and gentle simmering</li>
+                                <li>Heavy-duty continuous grates accommodating large cookware and easy sliding between burners</li>
+                                <li>Porcelain-coated interior surfaces resisting stains and simplifying cleanup</li>
+                                <li>Two-year comprehensive warranty with dedicated customer support</li>
+                            </ul>
+                            
+                            <h4>Common Problems and Professional Solutions</h4>
+                            <h5>Temperature Inconsistencies</h5>
+                            <p>When your Thermador oven heats unevenly or fails to maintain set temperatures, the culprit is often a faulty temperature sensor, worn heating element, or malfunctioning control board. Our technicians use professional-grade diagnostic equipment to isolate the exact component causing temperature drift, then replace failed parts with genuine Thermador components calibrated to factory specifications.</p>
+                            
+                            <h5>Ignition Failures in Gas Models</h5>
+                            <p>Gas ovens that won't light or produce weak flames typically suffer from clogged igniter ports, failing igniters, or gas valve issues. We clean and inspect all ignition components, test gas pressure levels, and replace igniters that have degraded over time. Safety is paramount—our technicians verify proper flame patterns and combustion before completing any gas oven repair.</p>
+                            
+                            <h5>Door Seal and Hinge Problems</h5>
+                            <p>Heat escaping around the oven door wastes energy and prevents proper cooking. We replace worn door gaskets, adjust hinge tension, and realign door assemblies to restore the airtight seal essential for efficient oven operation. Damaged glass panels are replaced with original Thermador parts matching your oven's specific model.</p>
+                            
+                            <h5>Control Panel and Display Malfunctions</h5>
+                            <p>Electronic control boards in modern Thermador ovens manage all cooking functions, and failures can manifest as unresponsive buttons, error codes, or erratic behavior. Our technicians diagnose whether issues stem from the touchpad, control board, or wiring connections, then implement targeted repairs that restore full functionality without unnecessary component replacement.</p>
+                            
+                            <h5>Convection Fan Issues</h5>
+                            <p>Convection ovens rely on fan circulation for even cooking, and noisy, slow, or non-functioning fans compromise performance. We replace worn fan motors, damaged blades, and failed bearings, restoring the airflow patterns that make convection cooking superior to conventional methods.</p>
+                            
+                            <h4>Our Expertise and Service Excellence</h4>
+                            <p>Our factory-trained technicians possess extensive experience with every Thermador oven model produced over the past two decades. We maintain comprehensive technical documentation, diagnostic software access, and direct relationships with Thermador parts distributors to ensure rapid, accurate repairs. Each technician completes ongoing certification programs covering the latest Thermador technologies, including smart home integration systems and advanced cooking algorithms.</p>
+                            <p>We stock commonly needed Thermador oven parts in our service vehicles, enabling same-day repairs for many issues. When specialty components require ordering, our priority supply chain typically delivers within 24-48 hours. Every repair includes thorough testing across all oven functions, calibration verification, and cleaning of accessible components.</p>
+                            <p>Our commitment extends beyond the immediate repair. We provide usage recommendations specific to your oven model, preventive maintenance schedules to extend appliance lifespan, and honest assessments when replacement becomes more economical than continued repairs. Manhattan, Brooklyn, Queens, and Bronx residents trust our team for Thermador oven service that prioritizes quality, transparency, and lasting results.</p>
                         </div>
                     </div>
                 </div>
@@ -585,11 +612,43 @@
                             <li>Freedom Induction</li><li>Masterpiece Series</li><li>Professional Series</li><li>Ventilation Cooktops</li>
                         </ul>
                         <div class="content-scroll">
-                            <p>Thermador cooktops are engineered for exceptional cooking accuracy, energy efficiency, and innovative features, making them a centerpiece of luxury kitchens. However, over time, these high-performance appliances may develop issues that impair their functionality. Timely and expert repairs are essential to ensure your Thermador cooktop operates safely and effectively, reducing interruptions to your routine, enhancing kitchen convenience, and significantly prolonging the appliance's lifespan.</p>
-                            <h4>Specialized Thermador Cooktop Models</h4>
-                            <p>Thermador offers a sophisticated array of cooktop models, each designed with distinct features to suit diverse culinary needs. Our repair services are tailored to meet the unique demands of every Thermador cooktop.</p>
-                            <h4>Dependable Thermador Cooktop Repair Services</h4>
-                            <p>Our Thermador cooktop repair services are grounded in expertise, efficiency, and a dedication to customer satisfaction. Whether you require urgent repairs or proactive maintenance, our skilled technicians ensure your cooktop performs at its peak. Using genuine Thermador parts and delivering premium service across Manhattan, Brooklyn, Queens, and The Bronx, we restore your kitchen appliance's functionality with precision and reliability.</p>
+                            <h4>Premium Features of Thermador Cooktops</h4>
+                            <p>Thermador cooktops showcase the brand's commitment to culinary innovation through groundbreaking features unavailable from lesser manufacturers. The patented Star Burner design delivers up to 18,000 BTUs while providing 56% more coverage area than conventional round burners, eliminating cold spots and enabling truly even heat distribution. The ExtraLow feature allows precise simmering at temperatures as low as 100°F, perfect for delicate sauces, chocolate melting, and keeping foods warm without overcooking.</p>
+                            <p>The Freedom Induction cooktop represents Thermador's most advanced cooking technology, featuring a full-surface induction zone that recognizes cookware placement and automatically activates heating elements beneath each pot or pan. This revolutionary design eliminates traditional burner constraints, allowing you to place cookware anywhere on the surface and even use oversized griddles spanning multiple zones. The integrated ventilation options on select models combine powerful downdraft systems with cooking surfaces, eliminating the need for overhead hoods and creating sleek, unobstructed kitchen sightlines.</p>
+                            
+                            <h4>Advantages of Choosing Thermador Cooktops</h4>
+                            <p>Thermador cooktops deliver professional-grade cooking performance that transforms home kitchens into culinary studios. The heavy-duty continuous grates span the entire cooking surface, allowing heavy pots to slide easily between burners without lifting. Precision-machined control knobs provide tactile feedback for accurate flame adjustment, while electronic ignition systems ensure reliable lighting with every use.</p>
+                            <ul>
+                                <li>Patented Star Burner technology with 56% more flame coverage than competitors</li>
+                                <li>Power burners reaching 18,000 BTUs for rapid boiling and high-heat searing</li>
+                                <li>ExtraLow simmer capability maintaining temperatures as low as 100°F</li>
+                                <li>Continuous cast-iron grates for seamless cookware movement</li>
+                                <li>Pedestal Star Burners elevating flames for optimal wok cooking</li>
+                                <li>Freedom Induction full-surface cooking technology</li>
+                                <li>Integrated downdraft ventilation options</li>
+                                <li>Home Connect smart technology for remote monitoring</li>
+                            </ul>
+                            
+                            <h4>Common Problems and Professional Solutions</h4>
+                            <h5>Burner Ignition Failures</h5>
+                            <p>Gas cooktops that click without lighting or produce inconsistent ignition typically suffer from moisture contamination, food debris in igniter ports, or worn igniter components. Our technicians thoroughly clean all igniter assemblies, replace degraded spark modules, and verify proper gas flow to each burner. We test ignition reliability across multiple cycles before completing repairs.</p>
+                            
+                            <h5>Uneven Flame Patterns</h5>
+                            <p>When Star Burners produce uneven flames or yellow-tipped combustion, the issue often stems from clogged burner ports, improper air-to-gas ratios, or damaged burner caps. We disassemble and deep-clean all burner components, adjust air shutters for optimal combustion, and replace any warped or corroded parts affecting flame distribution.</p>
+                            
+                            <h5>Induction Zone Malfunctions</h5>
+                            <p>Induction cooktops that fail to detect cookware, heat inconsistently, or display error codes require specialized diagnostic procedures. Our technicians test individual induction coils, verify control board functionality, and check for damaged glass surfaces affecting magnetic field transmission. We carry replacement coils and control modules for common Thermador induction models.</p>
+                            
+                            <h5>Control Knob and Electronic Issues</h5>
+                            <p>Unresponsive controls, erratic temperature settings, or malfunctioning digital displays indicate problems with control valves, electronic switches, or main control boards. We diagnose whether mechanical or electronic components have failed and implement targeted repairs restoring precise control over all cooking zones.</p>
+                            
+                            <h5>Gas Leak Concerns</h5>
+                            <p>Any suspected gas odor requires immediate professional attention. Our technicians perform comprehensive leak testing using electronic detectors and approved solutions, inspecting all connections, valves, and supply lines. We repair or replace compromised components and verify system integrity before returning cooktops to service.</p>
+                            
+                            <h4>Our Expertise and Service Excellence</h4>
+                            <p>Our factory-trained technicians specialize in Thermador cooktop technology spanning gas, electric, and induction models. We understand the unique engineering behind Star Burners, Freedom Induction systems, and integrated ventilation units, enabling accurate diagnosis and efficient repairs. Each technician maintains current certifications covering Thermador's evolving product lineup and smart home integration features.</p>
+                            <p>We arrive equipped with specialized tools for cooktop service, including gas pressure gauges, induction coil testers, and electronic diagnostic equipment. Common replacement parts travel in our service vehicles for same-day repairs whenever possible. For specialty components, our priority ordering typically delivers within one to two business days.</p>
+                            <p>Safety remains paramount in all cooktop repairs, particularly for gas models. We follow strict protocols for gas line disconnection, leak testing, and combustion verification. Every repair concludes with comprehensive functionality testing across all burners and cooking modes, ensuring your Thermador cooktop performs safely and reliably for years to come. Manhattan, Brooklyn, Queens, and Bronx residents trust our expertise for premium cooktop service.</p>
                         </div>
                     </div>
                 </div>
@@ -604,12 +663,43 @@
                             <li>Built-In Models</li><li>Smart Connect</li><li>Third Rack Models</li><li>Professional Handle</li>
                         </ul>
                         <div class="content-scroll">
-                            <p>Thermador is a premier brand in luxury home appliances, renowned for its high-performance dishwashers that combine cutting-edge technology, exceptional cleaning power, and elegant design. Even the most dependable appliances, however, may require maintenance or repairs over time. A malfunctioning Thermador dishwasher can disrupt your kitchen routine, waste water, and cause inconvenience. Professional and timely repair services are crucial to ensure your Thermador dishwasher operates at peak performance, extends its lifespan, and delivers spotless dishes every time.</p>
-                            <h4>Specialized Thermador Dishwasher Models</h4>
-                            <p>Thermador offers a range of dishwasher models designed to meet the needs of sophisticated kitchens. Our expertise spans all Thermador dishwasher models, allowing us to provide specialized repair services.</p>
-                            <p><strong>Freestanding, Built-In, Fully Integrated, Star-Sapphire, Sapphire, and Top Control Models</strong>: Our certified technicians are proficient in repairing Thermador dishwashers across this premium lineup, addressing issues like water leaks, drainage failures, and control system errors unique to each model.</p>
-                            <h4>Reliable Thermador Dishwasher Repair Services</h4>
-                            <p>Our Thermador dishwasher repair services are built on expertise, reliability, and a commitment to customer satisfaction. Whether you're facing a minor issue or a major malfunction, our skilled technicians deliver efficient repairs to restore your appliance's exceptional performance. With over seventy-four certified technicians serving Manhattan, Brooklyn, Queens, and the Bronx, and our use of genuine Thermador parts, you can trust us to keep your dishwasher running smoothly for years to come.</p>
+                            <h4>Premium Features of Thermador Dishwashers</h4>
+                            <p>Thermador dishwashers represent the pinnacle of cleaning technology, incorporating innovations that deliver spotless results while operating with whisper-quiet efficiency. The Star-Sapphire series features Thermador's exclusive StarDry system, using zeolite minerals to absorb moisture and release heat during the drying cycle, achieving perfectly dry dishes—including plastics—without heated dry elements that can damage delicate items or waste energy.</p>
+                            <p>The revolutionary third rack design maximizes loading capacity by providing dedicated space for utensils, cooking tools, and small items that traditionally consume valuable lower rack space. Thermador's PowerBoost technology delivers concentrated spray jets for heavily soiled pots and pans, while the Sapphire Glow interior light illuminates the wash chamber, making loading and unloading effortless even in dimly lit kitchens. Home Connect integration enables remote monitoring, cycle notifications, and voice control through popular smart home platforms.</p>
+                            
+                            <h4>Advantages of Choosing Thermador Dishwashers</h4>
+                            <p>Thermador dishwashers combine European engineering precision with American kitchen requirements, delivering exceptional cleaning performance in cycles as short as twenty minutes. The adjustable rack systems accommodate everything from delicate stemware to oversized serving platters, while precision-engineered spray arms ensure complete coverage throughout the wash chamber.</p>
+                            <ul>
+                                <li>StarDry zeolite drying technology for spotless, completely dry results</li>
+                                <li>Ultra-quiet operation as low as 39 dBA—quieter than a library</li>
+                                <li>Flexible third rack for utensils and small items</li>
+                                <li>PowerBoost concentrated cleaning for heavily soiled cookware</li>
+                                <li>CrystalDry technology using natural minerals for enhanced drying</li>
+                                <li>AutoAir door-opening feature releasing moisture at cycle end</li>
+                                <li>Panel-ready designs integrating seamlessly with cabinetry</li>
+                                <li>Home Connect smart features for remote monitoring and control</li>
+                            </ul>
+                            
+                            <h4>Common Problems and Professional Solutions</h4>
+                            <h5>Dishes Not Getting Clean</h5>
+                            <p>When dishes emerge with food residue, spots, or film, the problem may stem from clogged spray arms, malfunctioning wash motors, insufficient water temperature, or detergent dispenser failures. Our technicians inspect and clean all spray components, verify water heating elements function correctly, and test dispenser mechanisms to restore thorough cleaning performance.</p>
+                            
+                            <h5>Water Not Draining</h5>
+                            <p>Standing water after cycles indicates drain pump failures, clogged drain hoses, blocked filters, or garbage disposal connection issues. We disassemble and inspect the complete drainage system, clear obstructions, test pump operation, and verify proper installation of drain connections to eliminate standing water problems.</p>
+                            
+                            <h5>Leaking Water</h5>
+                            <p>Dishwasher leaks can damage flooring and cabinetry if not addressed promptly. Common causes include worn door gaskets, damaged spray arm seals, loose hose connections, or cracked tubs. Our technicians identify leak sources using systematic testing procedures, then replace gaskets, tighten connections, or repair damaged components as needed.</p>
+                            
+                            <h5>Unusual Noises</h5>
+                            <p>Grinding, humming, or rattling sounds during operation suggest worn wash motor bearings, damaged spray arm bushings, or foreign objects in the pump. We diagnose noise sources through careful inspection and component testing, replacing worn parts before minor issues cause major failures.</p>
+                            
+                            <h5>Control Panel and Electronic Failures</h5>
+                            <p>Unresponsive buttons, error codes, or erratic cycle behavior indicate control board problems, faulty user interfaces, or wiring issues. Our technicians use diagnostic modes to identify specific electronic failures, then repair or replace affected components restoring full functionality and cycle options.</p>
+                            
+                            <h4>Our Expertise and Service Excellence</h4>
+                            <p>Our factory-trained technicians possess comprehensive knowledge of Thermador dishwasher systems, from entry-level Emerald models to flagship Star-Sapphire units. We understand the unique technologies behind StarDry, CrystalDry, PowerBoost, and Home Connect features, enabling accurate diagnosis and effective repairs. Ongoing certification training keeps our team current with Thermador's latest innovations and service procedures.</p>
+                            <p>We stock commonly needed Thermador dishwasher parts including pumps, motors, gaskets, spray arms, and control components for same-day repairs whenever possible. Specialty parts arrive within one to two business days through our priority supply relationships. Every repair includes thorough testing across multiple cycles to verify proper operation.</p>
+                            <p>Our commitment to excellence extends beyond repairs. We provide loading recommendations for optimal cleaning, maintenance tips to prevent future problems, and honest assessments of repair versus replacement economics. Manhattan, Brooklyn, Queens, and Bronx residents depend on our expertise for Thermador dishwasher service that delivers lasting results and complete satisfaction.</p>
                         </div>
                     </div>
                 </div>
@@ -624,11 +714,46 @@
                             <li>Speed Oven Combos</li><li>Sensor Cooking</li><li>Trim Kit Models</li><li>Multi-Function</li>
                         </ul>
                         <div class="content-scroll">
-                            <p>Thermador microwaves are crafted for superior cooking accuracy, energy efficiency, and innovative technology, making them a vital component of high-end kitchens. However, even these premium appliances can face issues over time that hinder their performance. Timely and expert repairs are essential to ensure your microwave operates safely and efficiently, reducing disruptions and extending its lifespan.</p>
-                            <h4>Specialized Thermador Microwave Models</h4>
-                            <p>Thermador offers a sophisticated lineup of microwave models, each equipped with distinct features to meet diverse culinary and kitchen design needs. Our repair services are customized to address the unique requirements of every Thermador microwave model.</p>
-                            <h4>Dependable Thermador Microwave Repair Services</h4>
-                            <p>Our Thermador microwave repair services are built on expertise, speed, and a dedication to customer satisfaction. Whether you require urgent fixes or preventive maintenance, our technicians deliver exceptional results. Using authentic Thermador parts and industry-leading techniques, we ensure your microwave performs at its peak, providing reliable service for your kitchen needs.</p>
+                            <h4>Premium Features of Thermador Microwaves</h4>
+                            <p>Thermador microwaves transcend basic reheating appliances, offering professional-grade cooking capabilities that complement high-end kitchen environments. The built-in and drawer models integrate seamlessly with Thermador ovens and cooking surfaces, creating unified cooking stations with consistent design aesthetics. Sensor cooking technology automatically adjusts power levels and cooking times based on food moisture content, eliminating guesswork and preventing overcooking.</p>
+                            <p>The convection microwave models combine rapid microwave heating with true convection baking and roasting, enabling browning and crisping impossible with standard microwaves. Speed oven combinations pair microwave technology with traditional heating elements, reducing cooking times by up to 50% while delivering results indistinguishable from conventional ovens. Thermador's drawer microwaves offer ergonomic below-counter installation, keeping countertops clear while providing easy access that eliminates reaching overhead.</p>
+                            
+                            <h4>Advantages of Choosing Thermador Microwaves</h4>
+                            <p>Thermador microwaves deliver versatility and performance that justify their premium positioning. The precision-engineered magnetrons provide consistent power output across all settings, while multi-stage cooking programs execute complex recipes automatically. Stainless steel interiors resist staining and odor absorption while simplifying cleaning.</p>
+                            <ul>
+                                <li>Sensor cooking automatically detecting food moisture for perfect results</li>
+                                <li>Convection capability enabling true baking and browning</li>
+                                <li>Speed oven technology reducing cooking times by up to 50%</li>
+                                <li>Drawer configuration for ergonomic below-counter installation</li>
+                                <li>Keep Warm mode maintaining serving temperatures without overcooking</li>
+                                <li>Multi-stage programming for complex cooking sequences</li>
+                                <li>Stainless steel interiors resisting stains and odors</li>
+                                <li>Seamless integration with Thermador cooking appliance suites</li>
+                            </ul>
+                            
+                            <h4>Common Problems and Professional Solutions</h4>
+                            <h5>No Heat Production</h5>
+                            <p>When your Thermador microwave runs but fails to heat, the magnetron—the component generating microwave energy—has likely failed. Other causes include high-voltage diode failures, capacitor problems, or transformer issues. Our technicians safely diagnose high-voltage circuits using specialized equipment, then replace failed components restoring full heating capability.</p>
+                            
+                            <h5>Turntable Malfunctions</h5>
+                            <p>Turntables that don't rotate cause uneven cooking and hot spots. Problems typically stem from worn drive couplers, failed turntable motors, or damaged roller guides. We inspect all turntable components, replace worn parts, and verify smooth rotation before completing repairs.</p>
+                            
+                            <h5>Sparking or Arcing</h5>
+                            <p>Sparks inside the microwave cavity indicate serious problems requiring immediate attention. Common causes include damaged waveguide covers, deteriorated interior paint exposing bare metal, or metal fragments on the turntable or walls. Our technicians identify and address spark sources, replacing waveguide covers and repairing interior surfaces to restore safe operation.</p>
+                            
+                            <h5>Door Latch and Safety Switch Issues</h5>
+                            <p>Microwaves won't operate unless door switches confirm secure closure. Failed switches, misaligned latches, or damaged door seals prevent operation or allow unsafe running with doors ajar. We replace faulty switches, adjust latch mechanisms, and verify all safety interlocks function correctly.</p>
+                            
+                            <h5>Control Panel Problems</h5>
+                            <p>Unresponsive touchpads, dim displays, or erratic button behavior indicate membrane switch failures, control board problems, or display module issues. Our technicians diagnose whether problems originate in user interface components or main control boards, then implement targeted repairs restoring full functionality.</p>
+                            
+                            <h5>Convection Fan Failures</h5>
+                            <p>Convection microwaves depend on fan circulation for even browning and baking. Noisy, slow, or non-functioning fans compromise convection performance. We replace worn motors, damaged blades, and failed bearings, restoring the airflow essential for proper convection operation.</p>
+                            
+                            <h4>Our Expertise and Service Excellence</h4>
+                            <p>Our factory-trained technicians understand Thermador microwave systems from standard built-in units to advanced speed oven combinations. We possess specialized training in high-voltage microwave circuits, requiring careful safety protocols and proper diagnostic equipment. Each technician maintains certification in current Thermador microwave technologies, including sensor cooking systems and smart home integration features.</p>
+                            <p>Microwave repairs require strict safety procedures due to potentially lethal voltages stored in capacitors even when unplugged. Our technicians follow established discharge protocols before touching internal components, protecting both themselves and your appliance from damage. We stock commonly needed parts including magnetrons, diodes, door switches, and control components for many same-day repairs.</p>
+                            <p>Our service extends beyond component replacement. We clean interior surfaces, inspect door seals, and test all cooking modes before completing repairs. Manhattan, Brooklyn, Queens, and Bronx customers trust our expertise for Thermador microwave service that prioritizes safety, quality, and lasting performance.</p>
                         </div>
                     </div>
                 </div>
@@ -643,11 +768,47 @@
                             <li>Freedom Collection</li><li>Panel-Ready Models</li><li>Wine Columns</li><li>Integrated Units</li>
                         </ul>
                         <div class="content-scroll">
-                            <p>Thermador refrigerators are designed with state-of-the-art cooling technology, outstanding energy efficiency, and elegant, modern styling, making them essential for premium kitchens. However, even these high-end appliances can develop issues over time, affecting their ability to keep food fresh. Swift and professional repair services are vital to restore peak performance, minimize food spoilage, and extend your refrigerator's lifespan.</p>
-                            <h4>Specialized Thermador Refrigerator Models</h4>
-                            <p>Thermador offers a diverse range of refrigerator models crafted to meet various residential and commercial demands. Our repair services are customized to address the unique needs of every Thermador refrigerator type, delivering precise and effective solutions.</p>
-                            <h4>Dependable Thermador Refrigerator Repair Services</h4>
-                            <p>Our Thermador refrigerator repair services are rooted in technical expertise, efficiency, and a commitment to customer satisfaction. Whether you need urgent repairs or preventive maintenance, our technicians ensure your refrigerator delivers consistent performance and longevity. Using genuine Thermador parts and proven repair methods, we restore your appliance's reliability and efficiency with precision and care.</p>
+                            <h4>Premium Features of Thermador Refrigerators</h4>
+                            <p>Thermador refrigerators represent the ultimate in food preservation technology, combining powerful cooling systems with thoughtful design features that enhance everyday kitchen functionality. The Freedom Collection offers unprecedented customization, allowing separate refrigerator and freezer columns to be installed independently and configured to match specific storage needs. ThermaFresh systems maintain optimal humidity levels in dedicated compartments, extending the freshness of fruits, vegetables, and delicate produce significantly beyond conventional refrigerators.</p>
+                            <p>The SuperCool and SuperFreeze functions rapidly lower temperatures to preserve freshness when loading groceries or recovering from door openings. Built-in water filtration systems deliver crystal-clear ice and chilled water while removing contaminants and improving taste. Panel-ready models accept custom cabinetry panels, enabling seamless integration that makes refrigerators virtually invisible within kitchen designs. Home Connect technology provides remote temperature monitoring, door-ajar alerts, and filter replacement reminders through smartphone applications.</p>
+                            
+                            <h4>Advantages of Choosing Thermador Refrigerators</h4>
+                            <p>Thermador refrigerators deliver professional-grade preservation within residential kitchens, maintaining precise temperatures and humidity levels that protect food investments. The industrial-grade compressors operate with exceptional efficiency while producing minimal noise, and multi-zone cooling systems prevent temperature fluctuations that compromise food quality.</p>
+                            <ul>
+                                <li>Freedom Collection modular design for customized refrigeration configurations</li>
+                                <li>ThermaFresh compartments with optimized humidity control</li>
+                                <li>SuperCool and SuperFreeze rapid temperature recovery functions</li>
+                                <li>Built-in water filtration for pure ice and drinking water</li>
+                                <li>SoftClose doors with integrated dampers preventing slamming</li>
+                                <li>Full-extension drawers providing complete access to contents</li>
+                                <li>Panel-ready designs for seamless cabinetry integration</li>
+                                <li>Home Connect smart monitoring and control capabilities</li>
+                                <li>LED theater lighting illuminating every interior corner</li>
+                            </ul>
+                            
+                            <h4>Common Problems and Professional Solutions</h4>
+                            <h5>Insufficient Cooling</h5>
+                            <p>When refrigerators fail to maintain proper temperatures, food spoils rapidly. Common causes include dirty condenser coils reducing heat dissipation, malfunctioning evaporator fans failing to circulate cold air, damaged door gaskets allowing warm air infiltration, or failing compressors unable to maintain pressure. Our technicians diagnose cooling deficiencies systematically, cleaning coils, replacing worn components, and verifying proper refrigerant charges.</p>
+                            
+                            <h5>Excessive Frost Buildup</h5>
+                            <p>Frost accumulation in freezer compartments indicates defrost system failures. The defrost heater, timer, or thermostat may have failed, preventing the automatic defrost cycles that keep evaporator coils frost-free. We test all defrost components, replace failed parts, and manually defrost heavily iced units before returning them to service.</p>
+                            
+                            <h5>Water Leaks</h5>
+                            <p>Water pooling inside or beneath refrigerators stems from clogged defrost drains, damaged water line connections, or malfunctioning ice maker components. Our technicians trace leak sources methodically, clearing blocked drains, replacing damaged tubing, and repairing ice maker water valves to eliminate moisture problems.</p>
+                            
+                            <h5>Ice Maker Malfunctions</h5>
+                            <p>Ice makers that fail to produce ice, make insufficient quantities, or create misshapen cubes require professional diagnosis. Problems may involve water inlet valves, ice maker modules, temperature sensors, or ejector mechanisms. We test all ice production components and replace failed parts restoring reliable ice production.</p>
+                            
+                            <h5>Unusual Noises</h5>
+                            <p>Clicking, buzzing, humming, or rattling sounds indicate various potential issues including compressor problems, failing evaporator fan motors, loose components, or ice buildup contacting fan blades. Our technicians identify noise sources through systematic inspection and testing, then address underlying causes before minor annoyances become major failures.</p>
+                            
+                            <h5>Compressor Failures</h5>
+                            <p>Compressor problems represent the most serious refrigerator issues, potentially requiring significant repairs or replacement considerations. Symptoms include failure to cool, continuous running, or unusual sounds. Our technicians diagnose compressor electrical and mechanical conditions, evaluate repair economics, and provide honest recommendations about repair versus replacement.</p>
+                            
+                            <h4>Our Expertise and Service Excellence</h4>
+                            <p>Our factory-trained technicians specialize in Thermador refrigeration systems spanning column units, French door models, and integrated designs. We understand the sophisticated technologies behind ThermaFresh preservation, Freedom Collection configurations, and Home Connect integration, enabling accurate diagnosis and effective repairs. Each technician maintains current certification in Thermador refrigeration technologies, including sealed system repairs and refrigerant handling.</p>
+                            <p>We stock commonly needed Thermador refrigerator parts including fan motors, thermostats, water valves, door gaskets, and ice maker components for same-day repairs whenever possible. Sealed system repairs requiring refrigerant recovery and recharge are performed by EPA-certified technicians following environmental regulations. Complex repairs receive detailed estimates before work begins.</p>
+                            <p>Our commitment extends beyond immediate repairs. We provide usage recommendations to optimize food preservation, maintenance schedules to prevent problems, and energy-saving tips to reduce operating costs. Manhattan, Brooklyn, Queens, and Bronx residents trust our team for Thermador refrigerator service that protects their food investments and delivers lasting reliability.</p>
                         </div>
                     </div>
                 </div>
@@ -662,10 +823,47 @@
                             <li>Freestanding</li><li>Column Wine Storage</li><li>Glass Door Models</li><li>Panel-Ready</li>
                         </ul>
                         <div class="content-scroll">
-                            <p>Thermador wine coolers are engineered with advanced cooling systems, sleek designs, and energy-efficient technology to store your wine collection perfectly. Whether freestanding, countertop, or built-in, these appliances maintain ideal conditions to preserve your wines' quality. Issues can develop over time that impair functionality. Swift, expert repairs ensure your Thermador wine cooler operates seamlessly, protecting wines and prolonging durability.</p>
-                            <p>Thermador offers a refined selection of wine cooler models, each designed to cater to the unique storage needs of wine connoisseurs. Our repair services are tailored to address the specific demands of every Thermador wine cooler type, delivering precise solutions.</p>
-                            <h4>Dependable Thermador Wine Cooler Repair Services</h4>
-                            <p>Our Thermador wine cooler repair services are built on technical expertise, efficiency, and a dedication to customer satisfaction. Whether you need urgent repairs for a freestanding single-zone cooler or maintenance for a dual-zone cabinet, our technicians deliver exceptional results. Using genuine Thermador parts and proven techniques, we restore your wine cooler's performance, ensuring your collection is preserved with precision and care.</p>
+                            <h4>Premium Features of Thermador Wine Coolers</h4>
+                            <p>Thermador wine coolers provide museum-quality storage conditions that protect and enhance fine wine collections. The dual-zone temperature systems maintain independent climate zones for simultaneous storage of reds and whites at their optimal serving temperatures, eliminating the need for separate storage units. Vibration-dampening compressor mounts protect delicate sediments from disturbance, while UV-resistant glass doors shield wines from harmful light exposure that accelerates aging and degrades quality.</p>
+                            <p>The SoftClose door mechanisms prevent jarring impacts that disturb settling wines, and full-extension wooden racks provide elegant presentation while enabling easy bottle access without disturbing neighboring wines. Temperature memory functions restore precise settings after power interruptions, protecting collections from fluctuation damage. Column wine storage units integrate seamlessly with Thermador refrigerator columns, creating cohesive preservation centers for comprehensive kitchen food and beverage storage.</p>
+                            
+                            <h4>Advantages of Choosing Thermador Wine Coolers</h4>
+                            <p>Thermador wine coolers deliver cellar-quality conditions within kitchen environments, maintaining the precise temperature stability and humidity levels that fine wines require for proper aging and preservation. The commercial-grade cooling systems operate with efficiency and reliability that protects valuable collections.</p>
+                            <ul>
+                                <li>Dual-zone independent temperature control for reds and whites</li>
+                                <li>Vibration-dampening compressor technology protecting sediments</li>
+                                <li>UV-resistant glass doors preventing light damage</li>
+                                <li>SoftClose door mechanisms preventing jarring impacts</li>
+                                <li>Full-extension wooden racks for elegant bottle presentation</li>
+                                <li>Temperature memory maintaining settings through power interruptions</li>
+                                <li>Humidity management preventing cork desiccation</li>
+                                <li>LED interior lighting without heat generation</li>
+                                <li>Panel-ready options for seamless cabinetry integration</li>
+                            </ul>
+                            
+                            <h4>Common Problems and Professional Solutions</h4>
+                            <h5>Temperature Fluctuations</h5>
+                            <p>Wine requires stable temperatures, and fluctuations can damage collections permanently. Temperature instability may result from failing thermostats, dirty condenser coils reducing cooling efficiency, damaged door gaskets allowing warm air infiltration, or compressor problems. Our technicians diagnose temperature control issues systematically, calibrating sensors, cleaning coils, replacing gaskets, and verifying compressor operation.</p>
+                            
+                            <h5>Compressor Running Constantly</h5>
+                            <p>Compressors that run continuously without cycling indicate the system is struggling to maintain temperature. Common causes include refrigerant leaks, dirty condensers, blocked airflow, or thermostat malfunctions. We identify why the compressor cannot reach target temperatures and implement appropriate repairs restoring normal cycling operation.</p>
+                            
+                            <h5>Excessive Condensation</h5>
+                            <p>Moisture buildup inside wine coolers or on door surfaces suggests humidity control problems, damaged door gaskets, or drainage issues. Excess moisture promotes mold growth and label damage while indicating temperature management problems. Our technicians address humidity control component failures and seal integrity issues eliminating condensation problems.</p>
+                            
+                            <h5>Unusual Noises</h5>
+                            <p>Wine cooler compressors should operate quietly without disturbing wine storage environments. Buzzing, clicking, rattling, or vibrating sounds indicate compressor problems, loose components, or fan issues. Our technicians identify and address noise sources, replacing worn parts and securing loose components to restore quiet operation.</p>
+                            
+                            <h5>Interior Lighting Failures</h5>
+                            <p>LED lighting systems in Thermador wine coolers illuminate collections without generating heat that could affect storage temperatures. Failed lights, flickering, or intermittent operation indicate LED module problems, wiring issues, or control board failures. We replace failed lighting components restoring proper illumination.</p>
+                            
+                            <h5>Control Panel and Display Issues</h5>
+                            <p>Unresponsive controls, inaccurate temperature displays, or error codes indicate electronic problems requiring professional diagnosis. Our technicians test control boards, user interfaces, and temperature sensors, replacing failed components restoring accurate monitoring and control functions.</p>
+                            
+                            <h4>Our Expertise and Service Excellence</h4>
+                            <p>Our factory-trained technicians understand the specialized requirements of wine storage systems, from temperature precision to vibration control. We possess comprehensive knowledge of Thermador wine cooler technologies spanning under-counter units to full-height column storage systems. Each technician maintains certification in refrigeration systems and understands the unique demands of wine preservation.</p>
+                            <p>We recognize that wine cooler failures put valuable collections at risk. Our priority scheduling ensures rapid response for cooling emergencies, and we arrive equipped with commonly needed parts for same-day repairs whenever possible. When specialty components require ordering, our priority supply chain typically delivers within one to two business days.</p>
+                            <p>Our service includes recommendations for optimal wine storage practices, including proper bottle positioning, temperature settings for different wine types, and humidity maintenance. We understand that Thermador wine cooler owners are passionate collectors who deserve knowledgeable service that respects their investments. Manhattan, Brooklyn, Queens, and Bronx wine enthusiasts trust our expertise for Thermador wine cooler service that protects their collections and delivers peace of mind.</p>
                         </div>
                     </div>
                 </div>
@@ -1193,16 +1391,6 @@
                         <li><a href="#thermador-microwave-repair" class="scroll-link">Thermador Microwave Repair</a></li>
                         <li><a href="#thermador-wine-cooler-repair" class="scroll-link">Wine Cooler Repair</a></li>
                         <li><a href="#cf-schedule-container" class="scroll-link">Schedule Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#" class="scroll-top">Home</a></li>
-                        <li><a href="#sa-service-areas" class="scroll-link">Service Areas</a></li>
-                        <li><a href="#cf-schedule-container" class="scroll-link">Schedule Service</a></li>
-                        <li><a href="#" class="modal-trigger" data-modal="privacyModal">Privacy Policy</a></li>
-                        <li><a href="#" class="modal-trigger" data-modal="termsModal">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
