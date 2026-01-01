@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50">
   <style>
     .logo-text { font-family: 'Arial Black', Arial, sans-serif; font-weight: 900; font-style: italic; }
   </style>
   <text x="5" y="38" class="logo-text" font-size="32" fill="#FFFFFF" letter-spacing="-1">Thermador</text>
-  <polygon points="175,8 180,18 190,18 182,25 185,35 175,29 165,35 168,25 160,18 170,18" fill="#FFFFFF"/>
+  <polygon points="195,8 200,18 210,18 202,25 205,35 195,29 185,35 188,25 180,18 190,18" fill="#FFFFFF"/>
 </svg>
