@@ -1223,8 +1223,25 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Obfuscated contact method
-            function gp(){var p=[];p.push(String.fromCharCode(49));p.push(String.fromCharCode(56));p.push(String.fromCharCode(48));p.push(String.fromCharCode(48));p.push(String.fromCharCode(51));p.push(String.fromCharCode(54));p.push(String.fromCharCode(56));p.push(String.fromCharCode(49));p.push(String.fromCharCode(57));p.push(String.fromCharCode(53));p.push(String.fromCharCode(56));return 'tel:+'+p.join('');}
+            // Click-to-reveal phone number (hidden from crawlers)
+            function setupCallButton(btn) {
+                if (btn) {
+                    btn.addEventListener('click', function() {
+                        if (this.dataset.revealed) {
+                            window.location.href = 'tel:+1' + this.dataset.num;
+                            return;
+                        }
+                        var digits = [8, 0, 0, 3, 6, 8, 1, 9, 5, 8];
+                        var num = digits.join('');
+                        var formatted = '+1 (' + num.slice(0,3) + ') ' + num.slice(3,6) + '-' + num.slice(6);
+                        this.innerHTML = formatted;
+                        this.dataset.revealed = 'true';
+                        this.dataset.num = num;
+                    });
+                }
+            }
+            setupCallButton(document.getElementById('navCallNow'));
+            setupCallButton(document.getElementById('formCallNow'));
             
             // Services menu
             var servicesMenu = document.getElementById('servicesMenu');
@@ -1283,12 +1300,6 @@
                 });
             });
 
-            // Call buttons - obfuscated
-            var navCallNow = document.getElementById('navCallNow');
-            var formCallNow = document.getElementById('formCallNow');
-            if (navCallNow) navCallNow.addEventListener('click', function() { window.location.href = gp(); });
-            if (formCallNow) formCallNow.addEventListener('click', function() { window.location.href = gp(); });
-            
             // Hero and book buttons open form
             var heroCallNow = document.getElementById('heroCallNow');
             var cfBookButton = document.getElementById('cfBookButton');
