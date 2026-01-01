@@ -52,6 +52,7 @@
             --red: #c41e3a;
             --gray: #f8f9fa;
         }
+        html { scroll-behavior: smooth; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
@@ -74,7 +75,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         .logo-link { display: inline-flex; align-items: center; text-decoration: none; }
-        .logo-link img { height: 44px; width: auto; }
+        .logo-link img { height: 40px; width: auto; }
         .logo-link:hover { opacity: 0.9; }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .nav-right { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
@@ -152,7 +153,7 @@
                 padding: 15px 0;
             }
             .logo-link { margin-bottom: 10px; }
-            .logo-link img { height: 38px; }
+            .logo-link img { height: 35px; }
             .nav-right {
                 width: 100%;
                 justify-content: center;
@@ -506,7 +507,7 @@
     <header>
         <div class="container nav-wrapper">
             <a href="/" class="logo-link" aria-label="Return to Thermador Appliance Repair NYC Homepage">
-                <img src="assets/logo.svg" alt="Thermador Appliance Repair NYC" width="176" height="44">
+                <img src="assets/logo.svg" alt="Thermador Appliance Repair NYC" width="150" height="40">
             </a>
             <div class="nav-right">
                 <div class="services-menu" id="servicesMenu">
@@ -1223,7 +1224,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Obfuscated contact method
-            function gp(){var p=[];p.push(String.fromCharCode(55));p.push(String.fromCharCode(49));p.push(String.fromCharCode(56));p.push(String.fromCharCode(55));p.push(String.fromCharCode(49));p.push(String.fromCharCode(55));p.push(String.fromCharCode(49));p.push(String.fromCharCode(55));p.push(String.fromCharCode(48));p.push(String.fromCharCode(54));return 'tel:'+p.join('');}
+            function gp(){var p=[];p.push(String.fromCharCode(49));p.push(String.fromCharCode(56));p.push(String.fromCharCode(48));p.push(String.fromCharCode(48));p.push(String.fromCharCode(51));p.push(String.fromCharCode(54));p.push(String.fromCharCode(56));p.push(String.fromCharCode(49));p.push(String.fromCharCode(57));p.push(String.fromCharCode(53));p.push(String.fromCharCode(56));return 'tel:+'+p.join('');}
             
             // Services menu
             var servicesMenu = document.getElementById('servicesMenu');
@@ -1274,19 +1275,11 @@
             }
             document.addEventListener('click', closeDropdown);
             
-            // Close dropdown and scroll when nav links are clicked
-            var dropdownLinks = document.querySelectorAll('.services-dropdown a[href^="#"]');
-            dropdownLinks.forEach(function(link) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var targetId = this.getAttribute('href');
-                    closeDropdown();
-                    setTimeout(function() {
-                        var target = document.querySelector(targetId);
-                        if (target) {
-                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }, 100);
+            // Prevent additional submenu items from closing dropdown
+            var additionalItems = additionalSubmenu.querySelectorAll('li');
+            additionalItems.forEach(function(item) {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation();
                 });
             });
 
