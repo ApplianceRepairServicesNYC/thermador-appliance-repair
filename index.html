@@ -277,11 +277,11 @@
         }
         .service:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
         .service-image {
-            width: 100%; height: 200px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            width: 100%; height: 200px; background: #fff;
             border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center;
-            justify-content: center; color: var(--blue); font-size: 14px;
+            justify-content: center; overflow: hidden;
         }
-        .service-image span { opacity: 0.7; font-weight: 600; }
+        .service-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
         .learn-more-btn {
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             background: linear-gradient(135deg, var(--blue) 0%, #2d2d4a 100%); color: white;
@@ -304,10 +304,23 @@
         .service-types li { padding: 8px 0; color: #555; font-size: 14px; display: flex; align-items: center; }
         .service-types li:before { content: "✓"; color: var(--red); font-weight: bold; margin-right: 8px; }
         @media (max-width: 600px) { .service-types ul { grid-template-columns: 1fr; } }
-        .content-scroll {
-            max-height: none; overflow-y: visible; padding-right: 10px; margin-top: 15px;
-            line-height: 1.8; color: #444; font-size: 15px; text-align: left;
+        .read-more-btn {
+            display: inline-block; background: none; border: none; color: var(--blue); 
+            font-size: 14px; font-weight: 600; cursor: pointer; padding: 8px 15px; margin-top: 10px;
         }
+        .read-more-btn:hover { text-decoration: underline; }
+        .content-scroll {
+            max-height: 80px; overflow: hidden; transition: max-height 0.4s ease;
+            line-height: 1.7; color: #444; font-size: 14px; text-align: left; margin-top: 15px;
+            position: relative;
+        }
+        .content-scroll.active { max-height: 200px; overflow-y: auto; padding-right: 10px; }
+        .content-fade {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+            background: linear-gradient(transparent, rgba(196,30,58,0.05)); pointer-events: none;
+        }
+        .content-scroll.active + .content-fade,
+        .content-scroll.active .content-fade { display: none; }
         .content-scroll h4 { color: var(--blue); font-size: 17px; margin: 25px 0 12px 0; font-weight: 700; }
         .content-scroll h5 { color: var(--red); font-size: 15px; margin: 20px 0 10px 0; font-weight: 600; }
         .content-scroll p { margin: 0 0 14px 0; }
@@ -553,7 +566,7 @@
             <div class="services-grid">
                 <!-- OVEN REPAIR -->
                 <div class="service" id="thermador-oven-repair">
-                    <div class="service-image"><span>Thermador Oven</span></div>
+                    <div class="service-image"><img src="assets/thermador-oven.png" alt="Thermador Oven Repair NYC" loading="lazy"></div>
                     <a href="#" class="learn-more-btn" onclick="toggleService(this); return false;">Thermador Oven Repair <span>Learn More</span></a>
                     <div class="service-types">
                         <h3>Oven Models We Service:</h3>
@@ -561,7 +574,8 @@
                             <li>Single Wall Ovens</li><li>Double Wall Ovens</li><li>Steam Ovens</li><li>Convection Ovens</li>
                             <li>Speed Ovens</li><li>Professional Series</li><li>Masterpiece Series</li><li>Combination Ovens</li>
                         </ul>
-                        <div class="content-scroll">
+                        <div style="position: relative; margin-top: 15px;">
+                            <div class="content-scroll">
                             <h4>Premium Features of Thermador Ovens</h4>
                             <p>Thermador ovens represent the pinnacle of culinary technology, incorporating features that distinguish them from standard kitchen appliances. The signature Star Burner design provides superior flame spread and more even heat distribution, while the True Convection system utilizes a third heating element behind the fan to ensure consistent temperatures throughout the cooking cavity. Thermador's exclusive Home Connect technology enables remote monitoring and control through smartphone applications, allowing you to preheat your oven while still at the grocery store or receive notifications when your roast reaches the perfect internal temperature.</p>
                             <p>The Self-Cleaning modes available on Thermador ovens utilize high-temperature pyrolytic cleaning or steam-based cleaning options, reducing manual scrubbing and maintaining pristine interior surfaces. Professional-grade door hinges provide smooth operation and secure closure, while multi-layered glass panels minimize external heat transfer for kitchen safety. The precision temperature probes included with many models connect directly to the oven's control system, automatically adjusting cooking parameters to achieve exact doneness specifications.</p>
@@ -598,12 +612,15 @@
                             <p>Our factory-trained technicians possess extensive experience with every Thermador oven model produced over the past two decades. We maintain comprehensive technical documentation, diagnostic software access, and direct relationships with Thermador parts distributors to ensure rapid, accurate repairs. Each technician completes ongoing certification programs covering the latest Thermador technologies, including smart home integration systems and advanced cooking algorithms.</p>
                             <p>We stock commonly needed Thermador oven parts in our service vehicles, enabling same-day repairs for many issues. When specialty components require ordering, our priority supply chain typically delivers within 24-48 hours. Every repair includes thorough testing across all oven functions, calibration verification, and cleaning of accessible components.</p>
                             <p>Our commitment extends beyond the immediate repair. We provide usage recommendations specific to your oven model, preventive maintenance schedules to extend appliance lifespan, and honest assessments when replacement becomes more economical than continued repairs. Manhattan, Brooklyn, Queens, and Bronx residents trust our team for Thermador oven service that prioritizes quality, transparency, and lasting results.</p>
+                            </div>
+                            <div class="content-fade"></div>
                         </div>
+                        <button class="read-more-btn" onclick="toggleContent(this)">+ Show More</button>
                     </div>
                 </div>
                 <!-- COOKTOP REPAIR -->
                 <div class="service" id="thermador-cooktop-repair">
-                    <div class="service-image"><span>Thermador Cooktop</span></div>
+                    <div class="service-image"><img src="assets/thermador-cooktop.png" alt="Thermador Cooktop Repair NYC" loading="lazy"></div>
                     <a href="#" class="learn-more-btn" onclick="toggleService(this); return false;">Thermador Cooktop Repair <span>Learn More</span></a>
                     <div class="service-types">
                         <h3>Cooktop Models We Service:</h3>
@@ -611,7 +628,8 @@
                             <li>Gas Cooktops</li><li>Induction Cooktops</li><li>Electric Cooktops</li><li>Star Burner Models</li>
                             <li>Freedom Induction</li><li>Masterpiece Series</li><li>Professional Series</li><li>Ventilation Cooktops</li>
                         </ul>
-                        <div class="content-scroll">
+                        <div style="position: relative; margin-top: 15px;">
+                            <div class="content-scroll">
                             <h4>Premium Features of Thermador Cooktops</h4>
                             <p>Thermador cooktops showcase the brand's commitment to culinary innovation through groundbreaking features unavailable from lesser manufacturers. The patented Star Burner design delivers up to 18,000 BTUs while providing 56% more coverage area than conventional round burners, eliminating cold spots and enabling truly even heat distribution. The ExtraLow feature allows precise simmering at temperatures as low as 100°F, perfect for delicate sauces, chocolate melting, and keeping foods warm without overcooking.</p>
                             <p>The Freedom Induction cooktop represents Thermador's most advanced cooking technology, featuring a full-surface induction zone that recognizes cookware placement and automatically activates heating elements beneath each pot or pan. This revolutionary design eliminates traditional burner constraints, allowing you to place cookware anywhere on the surface and even use oversized griddles spanning multiple zones. The integrated ventilation options on select models combine powerful downdraft systems with cooking surfaces, eliminating the need for overhead hoods and creating sleek, unobstructed kitchen sightlines.</p>
@@ -649,12 +667,15 @@
                             <p>Our factory-trained technicians specialize in Thermador cooktop technology spanning gas, electric, and induction models. We understand the unique engineering behind Star Burners, Freedom Induction systems, and integrated ventilation units, enabling accurate diagnosis and efficient repairs. Each technician maintains current certifications covering Thermador's evolving product lineup and smart home integration features.</p>
                             <p>We arrive equipped with specialized tools for cooktop service, including gas pressure gauges, induction coil testers, and electronic diagnostic equipment. Common replacement parts travel in our service vehicles for same-day repairs whenever possible. For specialty components, our priority ordering typically delivers within one to two business days.</p>
                             <p>Safety remains paramount in all cooktop repairs, particularly for gas models. We follow strict protocols for gas line disconnection, leak testing, and combustion verification. Every repair concludes with comprehensive functionality testing across all burners and cooking modes, ensuring your Thermador cooktop performs safely and reliably for years to come. Manhattan, Brooklyn, Queens, and Bronx residents trust our expertise for premium cooktop service.</p>
+                            </div>
+                            <div class="content-fade"></div>
                         </div>
+                        <button class="read-more-btn" onclick="toggleContent(this)">+ Show More</button>
                     </div>
                 </div>
                 <!-- DISHWASHER REPAIR -->
                 <div class="service" id="thermador-dishwasher-repair">
-                    <div class="service-image"><span>Thermador Dishwasher</span></div>
+                    <div class="service-image"><img src="assets/thermador-dishwasher.png" alt="Thermador Dishwasher Repair NYC" loading="lazy"></div>
                     <a href="#" class="learn-more-btn" onclick="toggleService(this); return false;">Thermador Dishwasher Repair <span>Learn More</span></a>
                     <div class="service-types">
                         <h3>Dishwasher Models We Service:</h3>
@@ -662,7 +683,8 @@
                             <li>Sapphire Series</li><li>Emerald Series</li><li>Star-Sapphire</li><li>Panel-Ready</li>
                             <li>Built-In Models</li><li>Smart Connect</li><li>Third Rack Models</li><li>Professional Handle</li>
                         </ul>
-                        <div class="content-scroll">
+                        <div style="position: relative; margin-top: 15px;">
+                            <div class="content-scroll">
                             <h4>Premium Features of Thermador Dishwashers</h4>
                             <p>Thermador dishwashers represent the pinnacle of cleaning technology, incorporating innovations that deliver spotless results while operating with whisper-quiet efficiency. The Star-Sapphire series features Thermador's exclusive StarDry system, using zeolite minerals to absorb moisture and release heat during the drying cycle, achieving perfectly dry dishes—including plastics—without heated dry elements that can damage delicate items or waste energy.</p>
                             <p>The revolutionary third rack design maximizes loading capacity by providing dedicated space for utensils, cooking tools, and small items that traditionally consume valuable lower rack space. Thermador's PowerBoost technology delivers concentrated spray jets for heavily soiled pots and pans, while the Sapphire Glow interior light illuminates the wash chamber, making loading and unloading effortless even in dimly lit kitchens. Home Connect integration enables remote monitoring, cycle notifications, and voice control through popular smart home platforms.</p>
@@ -700,12 +722,15 @@
                             <p>Our factory-trained technicians possess comprehensive knowledge of Thermador dishwasher systems, from entry-level Emerald models to flagship Star-Sapphire units. We understand the unique technologies behind StarDry, CrystalDry, PowerBoost, and Home Connect features, enabling accurate diagnosis and effective repairs. Ongoing certification training keeps our team current with Thermador's latest innovations and service procedures.</p>
                             <p>We stock commonly needed Thermador dishwasher parts including pumps, motors, gaskets, spray arms, and control components for same-day repairs whenever possible. Specialty parts arrive within one to two business days through our priority supply relationships. Every repair includes thorough testing across multiple cycles to verify proper operation.</p>
                             <p>Our commitment to excellence extends beyond repairs. We provide loading recommendations for optimal cleaning, maintenance tips to prevent future problems, and honest assessments of repair versus replacement economics. Manhattan, Brooklyn, Queens, and Bronx residents depend on our expertise for Thermador dishwasher service that delivers lasting results and complete satisfaction.</p>
+                            </div>
+                            <div class="content-fade"></div>
                         </div>
+                        <button class="read-more-btn" onclick="toggleContent(this)">+ Show More</button>
                     </div>
                 </div>
                 <!-- MICROWAVE REPAIR -->
                 <div class="service" id="thermador-microwave-repair">
-                    <div class="service-image"><span>Thermador Microwave</span></div>
+                    <div class="service-image"><img src="assets/thermador-microwave.png" alt="Thermador Microwave Repair NYC" loading="lazy"></div>
                     <a href="#" class="learn-more-btn" onclick="toggleService(this); return false;">Thermador Microwave Repair <span>Learn More</span></a>
                     <div class="service-types">
                         <h3>Microwave Models We Service:</h3>
@@ -713,7 +738,8 @@
                             <li>Built-In Microwaves</li><li>Drawer Microwaves</li><li>Convection Microwaves</li><li>Over-the-Range</li>
                             <li>Speed Oven Combos</li><li>Sensor Cooking</li><li>Trim Kit Models</li><li>Multi-Function</li>
                         </ul>
-                        <div class="content-scroll">
+                        <div style="position: relative; margin-top: 15px;">
+                            <div class="content-scroll">
                             <h4>Premium Features of Thermador Microwaves</h4>
                             <p>Thermador microwaves transcend basic reheating appliances, offering professional-grade cooking capabilities that complement high-end kitchen environments. The built-in and drawer models integrate seamlessly with Thermador ovens and cooking surfaces, creating unified cooking stations with consistent design aesthetics. Sensor cooking technology automatically adjusts power levels and cooking times based on food moisture content, eliminating guesswork and preventing overcooking.</p>
                             <p>The convection microwave models combine rapid microwave heating with true convection baking and roasting, enabling browning and crisping impossible with standard microwaves. Speed oven combinations pair microwave technology with traditional heating elements, reducing cooking times by up to 50% while delivering results indistinguishable from conventional ovens. Thermador's drawer microwaves offer ergonomic below-counter installation, keeping countertops clear while providing easy access that eliminates reaching overhead.</p>
@@ -754,12 +780,15 @@
                             <p>Our factory-trained technicians understand Thermador microwave systems from standard built-in units to advanced speed oven combinations. We possess specialized training in high-voltage microwave circuits, requiring careful safety protocols and proper diagnostic equipment. Each technician maintains certification in current Thermador microwave technologies, including sensor cooking systems and smart home integration features.</p>
                             <p>Microwave repairs require strict safety procedures due to potentially lethal voltages stored in capacitors even when unplugged. Our technicians follow established discharge protocols before touching internal components, protecting both themselves and your appliance from damage. We stock commonly needed parts including magnetrons, diodes, door switches, and control components for many same-day repairs.</p>
                             <p>Our service extends beyond component replacement. We clean interior surfaces, inspect door seals, and test all cooking modes before completing repairs. Manhattan, Brooklyn, Queens, and Bronx customers trust our expertise for Thermador microwave service that prioritizes safety, quality, and lasting performance.</p>
+                            </div>
+                            <div class="content-fade"></div>
                         </div>
+                        <button class="read-more-btn" onclick="toggleContent(this)">+ Show More</button>
                     </div>
                 </div>
                 <!-- REFRIGERATOR REPAIR -->
                 <div class="service" id="thermador-refrigerator-repair">
-                    <div class="service-image"><span>Thermador Refrigerator</span></div>
+                    <div class="service-image"><img src="assets/thermador-refrigerator.png" alt="Thermador Refrigerator Repair NYC" loading="lazy"></div>
                     <a href="#" class="learn-more-btn" onclick="toggleService(this); return false;">Thermador Refrigerator Repair <span>Learn More</span></a>
                     <div class="service-types">
                         <h3>Refrigerator Models We Service:</h3>
@@ -767,7 +796,8 @@
                             <li>Column Refrigerators</li><li>Column Freezers</li><li>Built-In French Door</li><li>Bottom Freezer</li>
                             <li>Freedom Collection</li><li>Panel-Ready Models</li><li>Wine Columns</li><li>Integrated Units</li>
                         </ul>
-                        <div class="content-scroll">
+                        <div style="position: relative; margin-top: 15px;">
+                            <div class="content-scroll">
                             <h4>Premium Features of Thermador Refrigerators</h4>
                             <p>Thermador refrigerators represent the ultimate in food preservation technology, combining powerful cooling systems with thoughtful design features that enhance everyday kitchen functionality. The Freedom Collection offers unprecedented customization, allowing separate refrigerator and freezer columns to be installed independently and configured to match specific storage needs. ThermaFresh systems maintain optimal humidity levels in dedicated compartments, extending the freshness of fruits, vegetables, and delicate produce significantly beyond conventional refrigerators.</p>
                             <p>The SuperCool and SuperFreeze functions rapidly lower temperatures to preserve freshness when loading groceries or recovering from door openings. Built-in water filtration systems deliver crystal-clear ice and chilled water while removing contaminants and improving taste. Panel-ready models accept custom cabinetry panels, enabling seamless integration that makes refrigerators virtually invisible within kitchen designs. Home Connect technology provides remote temperature monitoring, door-ajar alerts, and filter replacement reminders through smartphone applications.</p>
@@ -809,12 +839,15 @@
                             <p>Our factory-trained technicians specialize in Thermador refrigeration systems spanning column units, French door models, and integrated designs. We understand the sophisticated technologies behind ThermaFresh preservation, Freedom Collection configurations, and Home Connect integration, enabling accurate diagnosis and effective repairs. Each technician maintains current certification in Thermador refrigeration technologies, including sealed system repairs and refrigerant handling.</p>
                             <p>We stock commonly needed Thermador refrigerator parts including fan motors, thermostats, water valves, door gaskets, and ice maker components for same-day repairs whenever possible. Sealed system repairs requiring refrigerant recovery and recharge are performed by EPA-certified technicians following environmental regulations. Complex repairs receive detailed estimates before work begins.</p>
                             <p>Our commitment extends beyond immediate repairs. We provide usage recommendations to optimize food preservation, maintenance schedules to prevent problems, and energy-saving tips to reduce operating costs. Manhattan, Brooklyn, Queens, and Bronx residents trust our team for Thermador refrigerator service that protects their food investments and delivers lasting reliability.</p>
+                            </div>
+                            <div class="content-fade"></div>
                         </div>
+                        <button class="read-more-btn" onclick="toggleContent(this)">+ Show More</button>
                     </div>
                 </div>
                 <!-- WINE COOLER REPAIR -->
                 <div class="service" id="thermador-wine-cooler-repair">
-                    <div class="service-image"><span>Thermador Wine Cooler</span></div>
+                    <div class="service-image"><img src="assets/thermador-winecooler.png" alt="Thermador Wine Cooler Repair NYC" loading="lazy"></div>
                     <a href="#" class="learn-more-btn" onclick="toggleService(this); return false;">Thermador Wine Cooler Repair <span>Learn More</span></a>
                     <div class="service-types">
                         <h3>Wine Cooler Models We Service:</h3>
@@ -822,7 +855,8 @@
                             <li>Under-Counter Units</li><li>Built-In Models</li><li>Dual Zone</li><li>Single Zone</li>
                             <li>Freestanding</li><li>Column Wine Storage</li><li>Glass Door Models</li><li>Panel-Ready</li>
                         </ul>
-                        <div class="content-scroll">
+                        <div style="position: relative; margin-top: 15px;">
+                            <div class="content-scroll">
                             <h4>Premium Features of Thermador Wine Coolers</h4>
                             <p>Thermador wine coolers provide museum-quality storage conditions that protect and enhance fine wine collections. The dual-zone temperature systems maintain independent climate zones for simultaneous storage of reds and whites at their optimal serving temperatures, eliminating the need for separate storage units. Vibration-dampening compressor mounts protect delicate sediments from disturbance, while UV-resistant glass doors shield wines from harmful light exposure that accelerates aging and degrades quality.</p>
                             <p>The SoftClose door mechanisms prevent jarring impacts that disturb settling wines, and full-extension wooden racks provide elegant presentation while enabling easy bottle access without disturbing neighboring wines. Temperature memory functions restore precise settings after power interruptions, protecting collections from fluctuation damage. Column wine storage units integrate seamlessly with Thermador refrigerator columns, creating cohesive preservation centers for comprehensive kitchen food and beverage storage.</p>
@@ -864,7 +898,10 @@
                             <p>Our factory-trained technicians understand the specialized requirements of wine storage systems, from temperature precision to vibration control. We possess comprehensive knowledge of Thermador wine cooler technologies spanning under-counter units to full-height column storage systems. Each technician maintains certification in refrigeration systems and understands the unique demands of wine preservation.</p>
                             <p>We recognize that wine cooler failures put valuable collections at risk. Our priority scheduling ensures rapid response for cooling emergencies, and we arrive equipped with commonly needed parts for same-day repairs whenever possible. When specialty components require ordering, our priority supply chain typically delivers within one to two business days.</p>
                             <p>Our service includes recommendations for optimal wine storage practices, including proper bottle positioning, temperature settings for different wine types, and humidity maintenance. We understand that Thermador wine cooler owners are passionate collectors who deserve knowledgeable service that respects their investments. Manhattan, Brooklyn, Queens, and Bronx wine enthusiasts trust our expertise for Thermador wine cooler service that protects their collections and delivers peace of mind.</p>
+                            </div>
+                            <div class="content-fade"></div>
                         </div>
+                        <button class="read-more-btn" onclick="toggleContent(this)">+ Show More</button>
                     </div>
                 </div>
             </div>
@@ -1651,6 +1688,11 @@
                 card.classList.remove('active');
                 var cardBtn = card.querySelector('.learn-more-btn span');
                 if (cardBtn) cardBtn.textContent = 'Learn More';
+                // Reset content-scroll when closing
+                var contentScroll = card.querySelector('.content-scroll');
+                if (contentScroll) contentScroll.classList.remove('active');
+                var readMoreBtn = card.querySelector('.read-more-btn');
+                if (readMoreBtn) readMoreBtn.textContent = 'Read More';
             });
             if (!isActive) {
                 serviceCard.classList.add('active');
@@ -1659,6 +1701,22 @@
                 setTimeout(function() {
                     serviceCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 100);
+            }
+        }
+        
+        function toggleContent(btn) {
+            var wrapper = btn.previousElementSibling;
+            var contentScroll = wrapper.querySelector('.content-scroll');
+            var fade = wrapper.querySelector('.content-fade');
+            var isCollapsed = !contentScroll.classList.contains('active');
+            if (isCollapsed) {
+                contentScroll.classList.add('active');
+                btn.textContent = '− Show Less';
+                if (fade) fade.style.display = 'none';
+            } else {
+                contentScroll.classList.remove('active');
+                btn.textContent = '+ Show More';
+                if (fade) fade.style.display = 'block';
             }
         }
     </script>
