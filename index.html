@@ -127,9 +127,9 @@
         .submenu-toggle:after { content: "›"; transition: transform .3s; font-size: 18px; }
         .submenu-toggle:hover:after { transform: rotate(90deg); }
         .additional-submenu, .service-areas-submenu {
-            max-height: 0; overflow: hidden; transition: max-height 0.8s ease;
+            max-height: 0; overflow-y: auto; transition: max-height 0.8s ease;
             background: rgba(0, 0, 0, 0.2); margin: 0 20px 14px; border-radius: 8px;
-            -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
         }
         .additional-submenu li, .service-areas-submenu li {
             padding: 20px 44px; color: #eee; font-size: 17px; margin: 12px 0; transition: all .3s;
@@ -401,7 +401,7 @@
     <header>
         <div class="container nav-wrapper">
             <a href="/" class="logo-link" aria-label="Return to Thermador Appliance Repair NYC Homepage">
-                <img src="assets/logo.svg" alt="Thermador Appliance Repair NYC" width="192" height="40">
+                <img src="assets/logo.svg" alt="Thermador Appliance Repair NYC" width="144" height="40">
             </a>
             <div class="nav-right">
                 <div class="services-menu" id="servicesMenu">
@@ -1139,24 +1139,18 @@
             if (dropdownCloseBtn) dropdownCloseBtn.addEventListener('click', function(e) { e.stopPropagation(); closeDropdown(); });
             if (additionalToggle) additionalToggle.addEventListener('click', function(e) { 
                 e.stopPropagation(); 
-                var isOpen = additionalSubmenu.style.maxHeight !== '0px' && additionalSubmenu.style.maxHeight;
-                additionalSubmenu.style.maxHeight = isOpen ? '0' : '400px';
-                if (!isOpen) {
-                    var dropdown = document.getElementById('servicesDropdown');
-                    setTimeout(function() {
-                        dropdown.scrollTop = additionalToggle.offsetTop - 20;
-                    }, 100);
+                if (additionalSubmenu.style.maxHeight && additionalSubmenu.style.maxHeight !== '0px') {
+                    additionalSubmenu.style.maxHeight = '0';
+                } else {
+                    additionalSubmenu.style.maxHeight = additionalSubmenu.scrollHeight + 'px';
                 }
             });
             if (serviceAreasToggle) serviceAreasToggle.addEventListener('click', function(e) { 
                 e.stopPropagation(); 
-                var isOpen = serviceAreasSubmenu.style.maxHeight !== '0px' && serviceAreasSubmenu.style.maxHeight;
-                serviceAreasSubmenu.style.maxHeight = isOpen ? '0' : '400px';
-                if (!isOpen) {
-                    var dropdown = document.getElementById('servicesDropdown');
-                    setTimeout(function() {
-                        dropdown.scrollTop = serviceAreasToggle.offsetTop - 20;
-                    }, 100);
+                if (serviceAreasSubmenu.style.maxHeight && serviceAreasSubmenu.style.maxHeight !== '0px') {
+                    serviceAreasSubmenu.style.maxHeight = '0';
+                } else {
+                    serviceAreasSubmenu.style.maxHeight = serviceAreasSubmenu.scrollHeight + 'px';
                 }
             });
             document.addEventListener('click', function(e) { if (!servicesMenu.contains(e.target)) closeDropdown(); });
