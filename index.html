@@ -609,7 +609,10 @@
         <div class="container">
             <h1>Authorized Thermador Appliance Repair NYC</h1>
             <p>Premium Service • Factory-Trained Technicians • Serving Manhattan, Brooklyn, Queens and Bronx</p>
-            <button class="btn" id="heroCallNow">Schedule Your Repair</button>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button class="btn" id="heroCallNow">Schedule Your Repair</button>
+                <button class="btn modal-trigger" data-modal="reviewsModal" style="background: transparent; border: 2px solid white;">★ Read Reviews</button>
+            </div>
         </div>
     </section>
     <section class="alt">
@@ -1502,6 +1505,106 @@
         </div>
     </div>
 
+    <div class="modal-card" id="epaModal">
+        <div class="modal-header">
+            <h2>Factory Certified Technicians</h2>
+            <button class="modal-close" data-close="modal">&times;</button>
+        </div>
+        <div class="modal-content">
+            <p><strong>Thermador Factory Authorized Service</strong></p>
+            <p>At Thermador Appliance Repair NYC, all of our technicians are factory-trained and certified to service Thermador cooking and kitchen appliances. This certification represents our commitment to delivering the highest standard of repair service using proper techniques and genuine Thermador parts.</p>
+            
+            <h3>What is Thermador Factory Certification?</h3>
+            <p>Thermador factory certification ensures technicians have completed comprehensive training on all Thermador appliance models. This includes understanding the unique professional-grade construction, diagnostic procedures, and repair techniques specific to Thermador equipment. Factory-certified technicians have direct access to Thermador technical resources and genuine replacement parts.</p>
+            
+            <h3>Equipment We Are Certified to Service</h3>
+            <p>Our factory-certified technicians are qualified to service the complete Thermador lineup:</p>
+            <ul>
+                <li><strong>Pro Ranges:</strong> 30", 36", 48", and 60" professional ranges including Pro Harmony and Pro Grand series</li>
+                <li><strong>Cooktops:</strong> Gas, induction, and electric cooktops including Masterpiece and Professional series</li>
+                <li><strong>Wall Ovens:</strong> Single, double, triple, and combination ovens with steam and convection</li>
+                <li><strong>Refrigeration:</strong> Built-in refrigerators, freezer columns, and wine preservation units</li>
+                <li><strong>Dishwashers:</strong> Emerald, Sapphire, and Star-Sapphire series dishwashers</li>
+                <li><strong>Ventilation:</strong> Island hoods, wall hoods, and downdraft ventilation systems</li>
+            </ul>
+            <p>With factory certification, our team is qualified to service any Thermador appliance regardless of age or configuration.</p>
+            
+            <h3>Benefits of Choosing Factory-Certified Technicians</h3>
+            <p>When you choose Thermador Appliance Repair NYC, you benefit from technicians who understand Thermador's unique engineering:</p>
+            <ul>
+                <li><strong>Proper Diagnosis:</strong> Factory training ensures accurate identification of issues</li>
+                <li><strong>Genuine Parts:</strong> Access to authentic Thermador replacement components</li>
+                <li><strong>Correct Procedures:</strong> Repairs performed according to Thermador specifications</li>
+                <li><strong>Warranty Protection:</strong> Proper service maintains your Thermador warranty coverage</li>
+                <li><strong>Extended Equipment Life:</strong> Expert repairs help your Thermador appliances last for decades</li>
+            </ul>
+            
+            <h3>Our Commitment to Excellence</h3>
+            <p>Beyond factory certification, our technicians undergo continuous training on the latest Thermador technologies and service procedures. We maintain fully-stocked service vehicles with genuine Thermador parts for fast, reliable repairs. When you trust us with your Thermador appliances, you're choosing a company that understands the legendary quality and performance that Thermador owners expect.</p>
+            <p style="margin-bottom: 20px;"></p>
+        </div>
+    </div>
+
+    <div class="modal-card" id="reviewsModal">
+        <div class="modal-header">
+            <h2>Customer Reviews</h2>
+            <button class="modal-close" data-close="modal">&times;</button>
+        </div>
+        <div class="modal-content">
+            <!-- Elfsight Google Reviews Widget - loaded on demand -->
+            <div id="elfsightContainer">
+                <div class="elfsight-app-2942fb52-4463-41bc-bc83-d831b9da6f0e"></div>
+            </div>
+            <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #333;">
+                <button id="writeReviewBtn" style="background: linear-gradient(45deg, #c41e3a, #a01830); color: white; border: none; padding: 14px 35px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s;">Write Your Review</button>
+                <p style="margin-top: 12px; color: #666; font-size: 14px;">Had a great experience? Help others by sharing your story!</p>
+            </div>
+            <div style="text-align: center; margin-top: 25px; padding: 25px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px;">
+                <p style="color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 5px;">Ready to Book Your Repair?</p>
+                <p style="color: #aaa; font-size: 14px; margin-bottom: 15px;">Same-day service available across NYC!</p>
+                <button id="reviewsCallBtn" style="background: linear-gradient(45deg, #c41e3a, #a01830); color: white; border: none; padding: 14px 40px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s;">📞 Call Toll-Free</button>
+            </div>
+            <p style="margin-bottom: 20px;"></p>
+        </div>
+    </div>
+
+    <!-- Write Review Form Modal -->
+    <div class="modal-card" id="writeReviewModal" style="max-width: 500px;">
+        <div class="modal-header">
+            <h2>Write a Review</h2>
+            <button class="modal-close" data-close="modal">&times;</button>
+        </div>
+        <div class="modal-content">
+            <form id="reviewForm">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">Your Name *</label>
+                    <input type="text" id="reviewName" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">Your Rating *</label>
+                    <div id="starRating" style="display: flex; gap: 8px; font-size: 32px; cursor: pointer; -webkit-user-select: none; user-select: none;">
+                        <span class="star" data-rating="1" tabindex="-1" style="-webkit-user-select: none; user-select: none;">☆</span>
+                        <span class="star" data-rating="2" tabindex="-1" style="-webkit-user-select: none; user-select: none;">☆</span>
+                        <span class="star" data-rating="3" tabindex="-1" style="-webkit-user-select: none; user-select: none;">☆</span>
+                        <span class="star" data-rating="4" tabindex="-1" style="-webkit-user-select: none; user-select: none;">☆</span>
+                        <span class="star" data-rating="5" tabindex="-1" style="-webkit-user-select: none; user-select: none;">☆</span>
+                    </div>
+                    <input type="hidden" id="reviewRating" value="0">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">Your Review *</label>
+                    <textarea id="reviewText" required rows="5" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; resize: vertical; box-sizing: border-box;" placeholder="Tell us about your experience..."></textarea>
+                </div>
+                <button type="submit" style="width: 100%; background: linear-gradient(45deg, #c41e3a, #a01830); color: white; border: none; padding: 14px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s;">Submit Review</button>
+            </form>
+            <div id="reviewThankYou" style="display: none; text-align: center; padding: 40px 20px;">
+                <div style="font-size: 60px; margin-bottom: 20px;">✓</div>
+                <h3 style="color: #1a1a2e; margin-bottom: 15px;">Thank You for Your Review!</h3>
+                <p style="color: #666; font-size: 16px;">Your review will be posted within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-main">
             <div class="footer-grid">
@@ -1542,6 +1645,8 @@
                     <a href="#cf-schedule-container" class="scroll-link">Schedule Service</a>
                     <a href="#" class="modal-trigger" data-modal="privacyModal">Privacy Policy</a>
                     <a href="#" class="modal-trigger" data-modal="termsModal">Terms of Service</a>
+                    <a href="#" class="modal-trigger" data-modal="epaModal">Factory Certified</a>
+                    <a href="#" class="modal-trigger" data-modal="reviewsModal">Reviews</a>
                 </div>
                 <p>© 2025 Thermador Appliance Repair NYC. All Rights Reserved.</p>
                 <p>Licensed and Insured • Factory Certified Technicians • Same-Day Service Available</p>
@@ -1764,6 +1869,9 @@
             var modalOverlay = document.getElementById('modalOverlay');
             var privacyModal = document.getElementById('privacyModal');
             var termsModal = document.getElementById('termsModal');
+            var epaModal = document.getElementById('epaModal');
+            var reviewsModal = document.getElementById('reviewsModal');
+            var writeReviewModal = document.getElementById('writeReviewModal');
             
             function openModal(modalId) {
                 modalOverlay.classList.add('active');
@@ -1775,7 +1883,70 @@
                 modalOverlay.classList.remove('active');
                 privacyModal.classList.remove('active');
                 termsModal.classList.remove('active');
+                if (epaModal) epaModal.classList.remove('active');
+                if (reviewsModal) reviewsModal.classList.remove('active');
+                if (writeReviewModal) writeReviewModal.classList.remove('active');
                 document.body.style.overflow = '';
+            }
+            
+            function closeModal(modalId) {
+                modalOverlay.classList.remove('active');
+                document.getElementById(modalId).classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Write Review Button
+            var writeReviewBtn = document.getElementById('writeReviewBtn');
+            if (writeReviewBtn) {
+                writeReviewBtn.addEventListener('click', function() {
+                    reviewsModal.classList.remove('active');
+                    openModal('writeReviewModal');
+                });
+            }
+            
+            // Reviews Call Button
+            var reviewsCallBtn = document.getElementById('reviewsCallBtn');
+            if (reviewsCallBtn) {
+                setupCallButton(reviewsCallBtn);
+            }
+            
+            // Star Rating System
+            var stars = document.querySelectorAll('#starRating .star');
+            var ratingInput = document.getElementById('reviewRating');
+            stars.forEach(function(star) {
+                star.addEventListener('click', function() {
+                    var rating = this.getAttribute('data-rating');
+                    ratingInput.value = rating;
+                    stars.forEach(function(s, i) {
+                        s.textContent = i < rating ? '★' : '☆';
+                        s.style.color = i < rating ? '#f5c518' : '#333';
+                    });
+                });
+            });
+            
+            // Review Form Submission
+            var reviewForm = document.getElementById('reviewForm');
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (ratingInput.value === '0') {
+                        alert('Please select a rating');
+                        return;
+                    }
+                    reviewForm.style.display = 'none';
+                    document.getElementById('reviewThankYou').style.display = 'block';
+                });
+            }
+            
+            // Elfsight Widget Lazy Loading
+            var elfsightLoaded = false;
+            function loadElfsightWidget() {
+                if (elfsightLoaded) return;
+                elfsightLoaded = true;
+                var script = document.createElement('script');
+                script.src = 'https://static.elfsight.com/platform/platform.js';
+                script.async = true;
+                document.head.appendChild(script);
             }
             
             // Modal triggers
@@ -1783,6 +1954,13 @@
                 trigger.addEventListener('click', function(e) {
                     e.preventDefault();
                     var modalId = this.getAttribute('data-modal');
+                    // Load Elfsight widget only when reviews modal is opened
+                    if (modalId === 'reviewsModal') {
+                        loadElfsightWidget();
+                    }
+                    // Close services dropdown if open
+                    var servicesMenu = document.getElementById('servicesMenu');
+                    if (servicesMenu) servicesMenu.classList.remove('active');
                     openModal(modalId);
                 });
             });
