@@ -600,7 +600,7 @@
                         </div>
                     </ul>
                 </div>
-                <button class="nav-call-btn" id="navCallNow">Call Toll-Free</button>
+                <button class="nav-call-btn" id="navCallNow">Book Online</button>
             </div>
         </div>
     </header>
@@ -1341,7 +1341,7 @@
             <section id="cf-schedule-container">
                 <div class="cf-schedule-text">Schedule Your Thermador Repair Online</div>
                 <button class="cf-book-button" id="cfBookButton">Book Online</button>
-                <button class="form-call-now" id="formCallNow">Call Toll-Free</button>
+                <button class="form-call-now" id="formCallNow">Book Online</button>
                 <div class="cf-contact-form-section" id="cfContactFormSection">
                     <p class="expect-text">What to Expect: Once you submit your request, a representative will contact you within 30 minutes...</p>
                     <form id="cfContactForm" class="cf-contact-form">
@@ -1562,7 +1562,7 @@
             <div style="text-align: center; margin-top: 25px; padding: 25px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px;">
                 <p style="color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 5px;">Ready to Book Your Repair?</p>
                 <p style="color: #aaa; font-size: 14px; margin-bottom: 15px;">Same-day service available across NYC!</p>
-                <button id="reviewsCallBtn" style="background: linear-gradient(45deg, #c41e3a, #a01830); color: white; border: none; padding: 14px 40px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s;">📞 Call Toll-Free</button>
+                <button id="reviewsCallBtn" style="background: linear-gradient(45deg, #c41e3a, #a01830); color: white; border: none; padding: 14px 40px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s;">Book Online</button>
             </div>
             <p style="margin-bottom: 20px;"></p>
         </div>
@@ -1672,7 +1672,7 @@
                     });
                 }
             }
-            setupCallButton(document.getElementById('navCallNow'));
+            document.getElementById('navCallNow').addEventListener('click', function() { document.getElementById('cf-schedule-container').scrollIntoView({behavior:'smooth'}); setTimeout(toggleForm, 500); });
             setupCallButton(document.getElementById('formCallNow'));
             
             // Services menu
@@ -1907,7 +1907,7 @@
             // Reviews Call Button
             var reviewsCallBtn = document.getElementById('reviewsCallBtn');
             if (reviewsCallBtn) {
-                setupCallButton(reviewsCallBtn);
+                reviewsCallBtn.addEventListener('click', function() { document.getElementById('cf-schedule-container').scrollIntoView({behavior:'smooth'}); setTimeout(toggleForm, 500); });
             }
             
             // Star Rating System
