@@ -428,13 +428,7 @@
             max-width: 220px; height: 60px; transition: all .3s;
         }
         .cf-book-button:hover { transform: translateY(-3px); }
-        .form-call-now {
-            display: flex; align-items: center; justify-content: center; padding: 12px 28px;
-            background: var(--red); color: white; font-weight: 700; border-radius: 6px;
-            font-size: 17px; cursor: pointer; margin: 15px auto 0; width: 100%; max-width: 220px;
-            height: 60px; transition: all .3s; border: none;
-        }
-        .form-call-now:hover { background: #a01830; transform: translateY(-3px); }
+        
         .cf-contact-form-section {
             max-height: 0; overflow: hidden; opacity: 0; transition: all .6s ease; padding: 0;
             background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4a 50%, #1a1a2e 100%);
@@ -1368,7 +1362,7 @@
             <section id="cf-schedule-container">
                 <div class="cf-schedule-text">Schedule Your Thermador Repair Online</div>
                 <button class="cf-book-button" id="cfBookButton">Book Online</button>
-                <button class="form-call-now" id="formCallNow">Book Online</button>
+                
                 <div class="cf-contact-form-section" id="cfContactFormSection">
                     <p class="expect-text">What to Expect: Once you submit your request, a representative will contact you within 30 minutes...</p>
                     <form id="cfContactForm" class="cf-contact-form">
@@ -1598,7 +1592,7 @@
                 }
             }
             document.getElementById('navCallNow').addEventListener('click', function() { document.getElementById('cf-schedule-container').scrollIntoView({behavior:'smooth'}); setTimeout(toggleForm, 500); });
-            setupCallButton(document.getElementById('formCallNow'));
+            
             
             // Services menu
             var servicesMenu = document.getElementById('servicesMenu');
