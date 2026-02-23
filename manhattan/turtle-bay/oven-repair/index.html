@@ -605,6 +605,7 @@
             <h1>Thermador Oven Repair in Turtle Bay</h1>
             <p>Expert Oven Service • Factory-Certified • Turtle Bay, Manhattan</p>
             <button class="btn" id="heroCallNow">Schedule Your Repair</button>
+            <button class="btn modal-trigger" data-modal="reviewsModal" style="background: transparent; border: 2px solid white;">★ Read Reviews</button>
         </div>
     </section>
     <section class="alt">
@@ -1555,6 +1556,59 @@
                 </div>
             </div>
         </div>
+
+    <div class="modal-card" id="reviewsModal">
+        <div class="modal-header">
+            <h2>Customer Reviews</h2>
+            <button class="modal-close" data-close="modal">&times;</button>
+        </div>
+        <div class="modal-content">
+            <div id="elfsightContainer">
+                <div class="elfsight-app-2942fb52-4463-41bc-bc83-d831b9da6f0e"></div>
+            </div>
+            <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #333;">
+                <button id="writeReviewBtn" style="background: linear-gradient(45deg, #c41e3a, #a01830); color: white; border: none; padding: 14px 35px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s;">Write Your Review</button>
+                <p style="margin-top: 12px; color: #666; font-size: 14px;">Had a great experience? Help others by sharing your story!</p>
+            </div>
+            <div style="text-align: center; margin-top: 25px; padding: 25px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px;">
+                <p style="color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 5px;">Ready to Book Your Repair?</p>
+                <p style="color: #aaa; font-size: 14px; margin-bottom: 15px;">Same-day service available across NYC!</p>
+                <button id="reviewsCallBtn" style="background: linear-gradient(45deg, #c41e3a, #a01830); color: white; border: none; padding: 14px 40px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s;">Book Online</button>
+            </div>
+            <p style="margin-bottom: 20px;"></p>
+        </div>
+    </div>
+
+    <div class="modal-card" id="writeReviewModal" style="max-width: 500px;">
+        <div class="modal-header">
+            <h2>Write a Review</h2>
+            <button class="modal-close" data-close="modal">&times;</button>
+        </div>
+        <div class="modal-content">
+            <form id="reviewForm">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">Your Name *</label>
+                    <input type="text" id="reviewName" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">Your Rating *</label>
+                    <div id="starRating" style="display: flex; gap: 8px; font-size: 32px; cursor: pointer; -webkit-user-select: none; user-select: none;">
+                        <span class="star" data-rating="1" tabindex="-1">☆</span>
+                        <span class="star" data-rating="2" tabindex="-1">☆</span>
+                        <span class="star" data-rating="3" tabindex="-1">☆</span>
+                        <span class="star" data-rating="4" tabindex="-1">☆</span>
+                        <span class="star" data-rating="5" tabindex="-1">☆</span>
+                    </div>
+                    <input type="hidden" id="reviewRating" name="rating" required>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">Your Review *</label>
+                    <textarea id="reviewText" required rows="4" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; resize: vertical; box-sizing: border-box;" placeholder="Share your experience with our service..."></textarea>
+                </div>
+                <button type="submit" style="width: 100%; background: linear-gradient(45deg, #c41e3a, #a01830); color: white; border: none; padding: 14px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer;">Submit Review</button>
+            </form>
+        </div>
+    </div>
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <div class="footer-bottom-links">
@@ -1564,6 +1618,7 @@
                     <a href="#cf-schedule-container" class="scroll-link">Schedule Service</a>
                     <a href="#" class="modal-trigger" data-modal="privacyModal">Privacy Policy</a>
                     <a href="#" class="modal-trigger" data-modal="termsModal">Terms of Service</a>
+                    <a href="#" class="modal-trigger" data-modal="reviewsModal">Reviews</a>
                 </div>
                 <p>© 2025 Thermador Appliance Repair Service of New York. All Rights Reserved.</p>
                 <p>Licensed and Insured • Factory Certified Technicians • Same-Day Service Available</p>
@@ -1786,6 +1841,8 @@
             var modalOverlay = document.getElementById('modalOverlay');
             var privacyModal = document.getElementById('privacyModal');
             var termsModal = document.getElementById('termsModal');
+            var reviewsModal = document.getElementById('reviewsModal');
+            var writeReviewModal = document.getElementById('writeReviewModal');
             
             function openModal(modalId) {
                 modalOverlay.classList.add('active');
@@ -1797,7 +1854,63 @@
                 modalOverlay.classList.remove('active');
                 privacyModal.classList.remove('active');
                 termsModal.classList.remove('active');
+                if (reviewsModal) reviewsModal.classList.remove('active');
+                if (writeReviewModal) writeReviewModal.classList.remove('active');
                 document.body.style.overflow = '';
+            }
+            
+            // Elfsight Widget Lazy Loading
+            var elfsightLoaded = false;
+            function loadElfsightWidget() {
+                if (elfsightLoaded) return;
+                elfsightLoaded = true;
+                var script = document.createElement('script');
+                script.src = 'https://static.elfsight.com/platform/platform.js';
+                script.async = true;
+                document.head.appendChild(script);
+            }
+            
+            // Write Review Button
+            var writeReviewBtn = document.getElementById('writeReviewBtn');
+            if (writeReviewBtn) {
+                writeReviewBtn.addEventListener('click', function() {
+                    reviewsModal.classList.remove('active');
+                    openModal('writeReviewModal');
+                });
+            }
+            
+            // Reviews Call Button
+            var reviewsCallBtn = document.getElementById('reviewsCallBtn');
+            if (reviewsCallBtn) {
+                reviewsCallBtn.addEventListener('click', function() { document.getElementById('cf-schedule-container').scrollIntoView({behavior:'smooth'}); closeAllModals(); setTimeout(toggleForm, 500); });
+            }
+            
+            // Star Rating System
+            var stars = document.querySelectorAll('#starRating .star');
+            var ratingInput = document.getElementById('reviewRating');
+            if (stars.length > 0) {
+                stars.forEach(function(star) {
+                    star.addEventListener('click', function() {
+                        var rating = this.getAttribute('data-rating');
+                        ratingInput.value = rating;
+                        stars.forEach(function(s, i) {
+                            s.textContent = i < rating ? '★' : '☆';
+                            s.style.color = i < rating ? '#c41e3a' : '#333';
+                        });
+                    });
+                });
+            }
+            
+            // Review Form Submission
+            var reviewForm = document.getElementById('reviewForm');
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your review! We appreciate your feedback.');
+                    this.reset();
+                    stars.forEach(function(s) { s.textContent = '☆'; s.style.color = '#333'; });
+                    closeAllModals();
+                });
             }
             
             // Modal triggers
@@ -1805,6 +1918,7 @@
                 trigger.addEventListener('click', function(e) {
                     e.preventDefault();
                     var modalId = this.getAttribute('data-modal');
+                    if (modalId === 'reviewsModal') { loadElfsightWidget(); }
                     openModal(modalId);
                 });
             });
