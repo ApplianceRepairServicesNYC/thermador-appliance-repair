@@ -1868,10 +1868,9 @@
             
             function closeAllModals() {
                 modalOverlay.classList.remove('active');
-                privacyModal.classList.remove('active');
-                termsModal.classList.remove('active');
-                if (reviewsModal) reviewsModal.classList.remove('active');
-                if (writeReviewModal) writeReviewModal.classList.remove('active');
+                document.querySelectorAll('.modal-card').forEach(function(modal) {
+                    modal.classList.remove('active');
+                });
                 document.body.style.overflow = '';
             }
             
