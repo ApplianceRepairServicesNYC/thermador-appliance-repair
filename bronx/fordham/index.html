@@ -1887,7 +1887,7 @@
             // Reviews Call Button
             var reviewsCallBtn = document.getElementById('reviewsCallBtn');
             if (reviewsCallBtn) {
-                reviewsCallBtn.addEventListener('click', function() { document.getElementById('cf-schedule-container').scrollIntoView({behavior:'smooth'}); closeAllModals(); setTimeout(toggleForm, 500); });
+                reviewsCallBtn.addEventListener('click', function() { closeAllModals(); document.getElementById('cf-schedule-container').scrollIntoView({behavior:'smooth'}); setTimeout(toggleForm, 500); });
             }
             
             // Star Rating System
