@@ -560,7 +560,19 @@
         .footer-bottom-links a { color: #b0b0b0; text-decoration: none; font-size: 14px; transition: color .3s; }
         .footer-bottom-links a:hover { color: var(--red); }
         .footer-bottom p { margin: 8px 0; font-size: 14px; color: #888; }
-    </style>
+    
+        .footer-credential {
+            color: #aaa;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            border-bottom: 1px dotted #666;
+        }
+        .footer-credential:hover {
+            color: #c41e3a;
+            border-bottom-color: #c41e3a;
+        }
+</style>
 </head>
 <body>
     <header>
@@ -1644,10 +1656,37 @@
                     <a href="#" class="modal-trigger" data-modal="reviewsModal">Reviews</a>
                 </div>
                 <p>© 2025 Thermador Appliance Repair Service of New York. All Rights Reserved.</p>
-                <p>Licensed and Insured • Factory Certified Technicians • Same-Day Service Available</p>
+                <p><a href="#" class="modal-trigger footer-credential" data-modal="licensedModal">Licensed and Insured</a> • <a href="#" class="modal-trigger footer-credential" data-modal="epaModal">Factory Certified Technicians</a> • <a href="#" class="modal-trigger footer-credential" data-modal="samedayModal">Same-Day Service Available</a></p>
             </div>
         </div>
-    </footer>
+    
+<!-- Licensed & Insured Modal -->
+<div class="modal-card" id="licensedModal" style="max-width: 500px;">
+    <div class="modal-header">
+        <h2>Licensed & Insured</h2>
+        <button class="modal-close" data-close="modal">&times;</button>
+    </div>
+    <div class="modal-content">
+        <p><strong>Fully Licensed:</strong> Our technicians hold all required state and local licenses to perform appliance repairs in New York. We comply with all regulatory requirements and industry standards.</p>
+        <p><strong>Fully Insured:</strong> We carry comprehensive liability insurance and workers compensation coverage. This protects you, your home, and our technicians during every service call.</p>
+        <p style="color: #666; font-style: italic;">Your peace of mind is our priority. Ask to see our credentials at any time.</p>
+    </div>
+</div>
+
+<!-- Same-Day Service Modal -->
+<div class="modal-card" id="samedayModal" style="max-width: 500px;">
+    <div class="modal-header">
+        <h2>Same-Day Service Available</h2>
+        <button class="modal-close" data-close="modal">&times;</button>
+    </div>
+    <div class="modal-content">
+        <p><strong>Fast Response Times:</strong> Most times we can provide same-day service or schedule your appointment within 24 to 48 hours. We understand that a broken appliance disrupts your entire household.</p>
+        <p><strong>Flexible Scheduling:</strong> We offer morning, afternoon, and evening appointment windows to fit your busy schedule. Weekend appointments are also available.</p>
+        <p><strong>Stocked Service Vehicles:</strong> Our vans carry common replacement parts, allowing many repairs to be completed in a single visit.</p>
+        <p style="color: #666; font-style: italic;">*Same-day service subject to availability and location.</p>
+    </div>
+</div>
+</footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Click-to-reveal phone number (hidden from crawlers)
