@@ -2100,5 +2100,19 @@
         
         <a href="/" class="back-home">← Back to Homepage</a>
     </div>
+<script>
+    // Click-to-reveal phone obfuscation
+    function initPhoneReveal(btn) {
+        btn.addEventListener('click', function(e) {
+            if (!this.dataset.revealed) {
+                e.preventDefault();
+                this.textContent = 'Call 1 (800) 778-3572';
+                this.href = "tel:+18007783572";
+                this.dataset.revealed = 'true';
+            }
+        });
+    }
+    document.querySelectorAll('.phone-reveal-btn').forEach(initPhoneReveal);
+</script>
 </body>
 </html>
