@@ -1803,7 +1803,7 @@
                         var headerOffset = 100;
                         var elementPosition = targetElement.getBoundingClientRect().top;
                         var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' }); if (targetId === '#cf-schedule-container') { setTimeout(toggleForm, 500); }
                     }
                     closeDropdown();
                 });
@@ -1827,7 +1827,7 @@
                         var headerOffset = 100;
                         var elementPosition = targetElement.getBoundingClientRect().top;
                         var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' }); if (targetId === '#cf-schedule-container') { setTimeout(toggleForm, 500); }
                     }
                     closeDropdown();
                 });
