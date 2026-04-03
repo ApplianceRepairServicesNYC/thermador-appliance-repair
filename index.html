@@ -1892,6 +1892,10 @@
                         var elementPosition = targetElement.getBoundingClientRect().top;
                         var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        // Auto-open form when scrolling to schedule container
+                        if (targetId === '#cf-schedule-container') {
+                            setTimeout(toggleForm, 500);
+                        }
                     }
                     closeDropdown();
                 });
